@@ -100,8 +100,8 @@
     position: relative;
     background: #F8F6F2;
     overflow: hidden;
-    min-height: 65vh;
-    padding: 15px 0 5px 0;
+    min-height: 70vh;
+    padding: 20px 0 10px 0;
   }
 
   .hero__art {
@@ -155,8 +155,8 @@
   .hero__support.microcopy {
     font-size: 14px;
     color: var(--tcc-muted);
-    margin-top: 8px;
-    margin-bottom: 16px;
+    margin-top: 12px;
+    margin-bottom: 24px;
     font-weight: 400;
   }
   
@@ -171,12 +171,12 @@
 
   /* Wrapper for the wave + overlays */
   .hero__waveWrap{
-    position: relative;
+    position: absolute;
+    bottom: -60px;
     display: block;
     width: 110%;
-    height: 180px;
+    height: 220px;
     left: -5%;
-    margin-top: 10px;
   }
 
   /* The wave SVG itself */
@@ -272,15 +272,15 @@
     text-transform: uppercase;
     color: #3C4A57;
     background: #fff;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 
   /* Title */
   .hero__title {
     color: var(--tcc-navy);
-    font-size: clamp(36px, 5.5vw, 64px);
+    font-size: clamp(40px, 6vw, 72px);
     line-height: 1.06;
-    margin: 0 0 0.75rem;
+    margin: 0 0 1rem;
     @apply font-serif;
   }
 
@@ -292,9 +292,9 @@
   .hero__subhead {
     color: #415262;
     max-width: 700px;
-    margin: 0 auto 1.5rem;
-    font-size: clamp(16px, 1.15vw, 19px);
-    line-height: 1.5;
+    margin: 0 auto 2rem;
+    font-size: clamp(18px, 1.25vw, 21px);
+    line-height: 1.6;
   }
 
   /* CTAs */
