@@ -34,17 +34,14 @@ export default function Contact() {
     setIsSubmitting(true);
     
     try {
-      const formspreeEndpoint = process.env.VITE_CONTACT_FORM_ENDPOINT || process.env.VITE_FORMSPREE_ENDPOINT || "https://formspree.io/f/YOUR_FORM_ID";
-      
-      const response = await fetch(formspreeEndpoint, {
+      const response = await fetch('/api/leads', {
         method: "POST",
         headers: {
-          "Accept": "application/json",
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
           ...formData,
-          form_type: "contact"
+          formType: "contact"
         })
       });
 

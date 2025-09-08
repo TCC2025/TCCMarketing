@@ -4,16 +4,28 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Calendar, TrendingUp } from "lucide-react";
-import caseStudiesData from "@/data/case-studies.json";
+import { useQuery } from "@tanstack/react-query";
+import type { CaseStudy } from "@shared/schema";
 
 export default function CaseStudies() {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const { data: caseStudiesData = [], isLoading } = useQuery<CaseStudy[]>({ queryKey: ['/api/case-studies'] });
   
   const categories = ["All", "Employer Branding", "AI Marketing", "Fractional CMO", "Executive Branding"];
   
   const filteredCaseStudies = selectedCategory === "All" 
     ? caseStudiesData 
     : caseStudiesData.filter(study => study.category === selectedCategory);
+    
+  if (isLoading) {
+    return (
+      <section className="py-20 lg:py-32 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div>Loading case studies...</div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <>

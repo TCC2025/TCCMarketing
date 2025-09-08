@@ -8,9 +8,8 @@ import Stat from "@/components/ui/stat";
 import Testimonial from "@/components/ui/testimonial";
 import { Bot, Users, TrendingUp, Star, CheckCircle, User } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import servicesData from "@/data/services.json";
-import statsData from "@/data/stats.json";
-import testimonialsData from "@/data/testimonials.json";
+import { useQuery } from "@tanstack/react-query";
+import type { Service, Stat as StatType, Testimonial as TestimonialType } from "@shared/schema";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -18,6 +17,11 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isNewsletterSubmitting, setIsNewsletterSubmitting] = useState(false);
   const { toast } = useToast();
+  
+  // Fetch data from APIs
+  const { data: servicesData = [] } = useQuery<Service[]>({ queryKey: ['/api/services'] });
+  const { data: statsData = [] } = useQuery<StatType[]>({ queryKey: ['/api/stats'] });
+  const { data: testimonialsData = [] } = useQuery<TestimonialType[]>({ queryKey: ['/api/testimonials'] });
 
   const handleLeadMagnetSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,18 +30,14 @@ export default function Home() {
     setIsSubmitting(true);
     
     try {
-      // Form submission to Formspree or environment endpoint
-      const formspreeEndpoint = process.env.VITE_FORMSPREE_ENDPOINT || process.env.VITE_LEAD_MAGNET_FORM_ENDPOINT || "https://formspree.io/f/YOUR_FORM_ID";
-      
-      const response = await fetch(formspreeEndpoint, {
+      const response = await fetch('/api/leads', {
         method: "POST",
         headers: {
-          "Accept": "application/json",
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
           email,
-          form_type: "lead_magnet",
+          formType: "lead_magnet",
           resource: "Talent Marketing Blueprint 2025"
         })
       });
@@ -69,17 +69,14 @@ export default function Home() {
     setIsNewsletterSubmitting(true);
     
     try {
-      const newsletterEndpoint = process.env.VITE_NEWSLETTER_ENDPOINT || "https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID";
-      
-      const response = await fetch(newsletterEndpoint, {
+      const response = await fetch('/api/leads', {
         method: "POST",
         headers: {
-          "Accept": "application/json",
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
           email: newsletterEmail,
-          form_type: "newsletter"
+          formType: "newsletter"
         })
       });
 

@@ -2,15 +2,28 @@ import SectionHeader from "@/components/ui/section-header";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Bot, Users, TrendingUp, Star, CheckCircle, ArrowRight } from "lucide-react";
-import servicesData from "@/data/services.json";
+import { useQuery } from "@tanstack/react-query";
+import type { Service } from "@shared/schema";
 
 export default function Services() {
+  const { data: servicesData = [], isLoading } = useQuery<Service[]>({ queryKey: ['/api/services'] });
+  
   const serviceIcons = {
     "AI Marketing & Automation": Bot,
     "Employer Branding & Talent Marketing": Users,
     "Fractional CMO": TrendingUp,
     "Executive Branding": Star
   };
+  
+  if (isLoading) {
+    return (
+      <section className="py-20 lg:py-32 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div>Loading services...</div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <>
