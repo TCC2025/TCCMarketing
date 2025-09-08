@@ -1,156 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
 @import "./styles/animations.css";
 
-:root {
-  /* --- Brand gradient tokens --- */
-  --primary-gradient: linear-gradient(90deg,
-      #10676F 0%,
-      #0F2435 22%,
-      #D89B2D 48%,
-      #F07B1E 74%,
-      #E7156A 100%);
-  --brushstroke-gradient: var(--primary-gradient);
+:root{
+  /* Gradient (one place) */
+  --primary-gradient: linear-gradient(90deg,#10676F 0%,#0F2435 22%,#D89B2D 48%,#F07B1E 74%,#E7156A 100%);
 
-  /* --- Core brand palette --- */
-  --tcc-bg: #F8F6F2;
-  /* Ivory Light (ONE canonical ivory) */
-  --tcc-ink: #21242C;
-  --tcc-navy: #0F2435;
-  --tcc-teal: #10676F;
-  --tcc-magenta: #E7156A;
-  --tcc-orange: #F07B1E;
-  --tcc-gold: #D89B2D;
-  --tcc-border: #E3E7EB;
-  --tcc-muted: #5C6770;
+  /* Core brand */
+  --tcc-bg:#F8F6F2;         /* single ivory */
+  --tcc-ink:#21242C;
+  --tcc-navy:#0F2435;
+  --tcc-teal:#10676F;
+  --tcc-magenta:#E7156A;
+  --tcc-orange:#F07B1E;
+  --tcc-gold:#D89B2D;
+  --tcc-border:#E3E7EB;
+  --tcc-muted:#5C6770;
 
-  /* --- Tailwind design tokens (map to brand) --- */
+  /* Tailwind CSS variables mapped to brand */
   --background: var(--tcc-bg);
   --foreground: var(--tcc-ink);
-
-  --card: #FFFFFF;
-  --card-foreground: var(--tcc-ink);
-
-  --popover: #FFFFFF;
-  --popover-foreground: var(--tcc-ink);
-
   --primary: var(--tcc-navy);
-  --primary-foreground: #FFFFFF;
-
-  /* keep secondary neutral, not blue-ish */
-  --secondary: #5C6770;
-  /* slate gray */
-  --secondary-foreground: #FFFFFF;
-
-  /* muted shades */
-  --muted: #F3F5F6;
-  --muted-foreground: #5C6770;
-
-  /* accent = brand highlight (gold works here) */
+  --primary-foreground:#fff;
+  --secondary: var(--tcc-muted);
+  --secondary-foreground:#fff;
   --accent: var(--tcc-gold);
-  --accent-foreground: #FFFFFF;
-
-  --destructive: #6B1C3E;
-  /* burgundy */
-  --destructive-foreground: #FFFFFF;
-
+  --accent-foreground:#fff;
   --border: var(--tcc-border);
+  --card: #fff;
+  --card-foreground: var(--tcc-ink);
+  --popover: #fff;
+  --popover-foreground: var(--tcc-ink);
+  --muted: #F3F5F6;
+  --muted-foreground: var(--tcc-muted);
+  --destructive: #6B1C3E;
+  --destructive-foreground: #fff;
   --input: #EDEFF2;
   --ring: var(--tcc-teal);
-
-  /* optional charts can stay as-is or map later */
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  /* Brand Colors - The Collective by Thompson & Co */
-  --brushstroke-gradient: linear-gradient(120deg, #0F2435 0%, #10676F 25%, #D89B2D 50%, #F07B1E 75%, #E7156A 100%);
-  /* Core Palette */
-  --magenta: #E7156A;
-  --warm-orange: #F07B1E;
-  --mustard-gold: #D89B2D;
-  --teal: #10676F;
-  --deep-navy: #0F2435;
-
-
-  /* Brand tokens (TCC specific) */
-  --tcc-bg: #F8F6F2;
-  /* Ivory Light */
-  --tcc-ink: #21242C;
-  /* Body text */
-  --tcc-navy: #0F2435;
-  --tcc-teal: #10676F;
-  --tcc-magenta: #E7156A;
-  --tcc-orange: #F07B1E;
-  --tcc-gold: #D89B2D;
-  --tcc-border: #E3E7EB;
-  --tcc-muted: #5C6770;
-
-  /* Secondary Expansion Palette */
-  --coral: #F28B82;
-  --burgundy: #6B1C3E;
-  --pale-gold: #EBD8A1;
-  --slate-gray: #5C6770;
-  --cool-mint: #A8DADC;
-  --black: #000000;
-  --white: #FFFFFF;
-
-  --charcoal: hsl(0, 0%, 12%);
-  /* #1F1F1F */
-  --slate-blue-grey: hsl(210, 18%, 35%);
-  /* #4A5A6A */
-  --professional-navy: hsl(215, 25%, 27%);
-  /* #334155 */
-  --warm-gold: hsl(32, 95%, 44%);
-  /* #d97706 */
-  --soft-ivory: hsl(40, 20%, 96%);
-  /* #F6F1EB */
-
-  /* Tailwind Custom Properties */
-  --background: #F6F1EB;
-  /* Ivory Background */
-  --foreground: hsl(0, 0%, 12%);
-  /* Charcoal */
-  --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(0, 0%, 12%);
-  --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(0, 0%, 12%);
-  --primary: #0F2435;
-  /* Deep Navy */
-  --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(215, 20%, 45%);
-  /* Slate Grey */
-  --secondary-foreground: hsl(0, 0%, 100%);
-  --muted: hsl(40, 20%, 90%);
-  --muted-foreground: hsl(210, 18%, 35%);
-  --accent: hsl(32, 95%, 44%);
-  /* Warm Gold */
-  --accent-foreground: hsl(0, 0%, 100%);
-  --destructive: hsl(0, 84%, 60%);
-  --destructive-foreground: hsl(0, 0%, 98%);
-  --border: hsl(40, 20%, 88%);
-  --input: hsl(40, 20%, 92%);
-  --ring: hsl(217, 100%, 62%);
-  --chart-1: hsl(325, 100%, 50%);
-  --chart-2: hsl(266, 85%, 58%);
-  --chart-3: hsl(217, 100%, 62%);
-  --chart-4: hsl(172, 100%, 40%);
-  --chart-5: hsl(0, 0%, 12%);
-  --sidebar: hsl(40, 20%, 96%);
-  --sidebar-foreground: hsl(0, 0%, 12%);
-  --sidebar-primary: hsl(325, 100%, 50%);
-  --sidebar-primary-foreground: hsl(0, 0%, 100%);
-  --sidebar-accent: hsl(40, 20%, 90%);
-  --sidebar-accent-foreground: hsl(0, 0%, 12%);
-  --sidebar-border: hsl(40, 20%, 88%);
-  --sidebar-ring: hsl(217, 100%, 62%);
-  --font-sans: 'Montserrat', sans-serif;
-  --font-serif: 'Playfair Display', serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --radius: 8px;
-}
 
 .dark {
   --background: hsl(210, 69%, 11%);
@@ -215,7 +105,9 @@
     height: auto;
     z-index: 0;
     pointer-events: none;
-    animation: hero-pan 8s ease-in-out infinite;
+    animation: hero-pan 28s linear infinite;
+    /* CSS fallback for SVG gradient */
+    background: var(--primary-gradient);
   }
   .hero__art::after {
     content: '';
@@ -237,9 +129,9 @@
     mix-blend-mode: overlay;
   }
   @keyframes hero-pan { 
-    0% { transform: translateX(-2%); } 
-    50% { transform: translateX(-10%); } 
-    100% { transform: translateX(-2%); } 
+    0% { transform: translateX(-4%); } 
+    50% { transform: translateX(-8%); } 
+    100% { transform: translateX(-4%); } 
   }
   @keyframes gradient-shine {
     0% { transform: translateX(0%); opacity: 0; }
@@ -248,7 +140,23 @@
     100% { transform: translateX(200%); opacity: 0; }
   }
   @media (prefers-reduced-motion: reduce) { 
-    .hero__art { animation: none; } 
+    .hero__art { animation: none; }
+    .hero__art::after { animation: none; }
+  }
+  
+  .hero__support.microcopy {
+    font-size: 14px;
+    color: var(--tcc-muted);
+    margin-top: 16px;
+    font-weight: 400;
+  }
+  
+  .hero__promise {
+    font-size: 16px;
+    color: var(--tcc-ink);
+    margin-top: 12px;
+    font-style: italic;
+    opacity: 0.8;
   }
 
   .hero .container {
@@ -462,10 +370,10 @@
 
   /* Gradient bar (brand signature) */
   .svc-card__bar {
-    height: 6px;
-    border-radius: 6px;
+    height: 8px;
+    border-radius: 8px;
     margin-bottom: 12px;
-    background: linear-gradient(90deg, #10676F 0%, #0F2435 22%, #D89B2D 48%, #F07B1E 74%, #E7156A 100%);
+    background: var(--primary-gradient);
   }
 
   .svc-card__title {
