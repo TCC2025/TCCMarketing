@@ -21,7 +21,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-[var(--tcc-navy)]/95 backdrop-blur-sm border-b border-[var(--tcc-border)] sticky top-0 z-40 transition-all duration-300">
+    <header className="bg-[#0F2435]/95 backdrop-blur-sm border-b border-[var(--tcc-border)] sticky top-0 z-40 transition-all duration-300">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" role="navigation" aria-label="Main navigation">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
@@ -71,15 +71,15 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-border bg-background">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-white/20 bg-[#0F2435]">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${
                     isActiveLink(item.href)
-                      ? "text-primary bg-muted"
-                      : "text-muted-foreground hover:text-accent hover:bg-muted/50"
+                      ? "text-white bg-white/10"
+                      : "text-white/80 hover:text-[var(--tcc-teal)] hover:bg-white/5"
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                   data-testid={`mobile-nav-link-${item.name.toLowerCase().replace(' ', '-')}`}
