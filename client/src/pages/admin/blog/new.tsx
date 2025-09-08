@@ -6,6 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card } from "@/components/ui/card";
 import { FileUpload } from "@/components/ui/file-upload";
+import { RichTextEditor } from "@/components/ui/rich-text-editor";
+import { AnimationPreview } from "@/components/ui/animation-preview";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowLeft, Save, Eye, Globe, ImageIcon } from "lucide-react";
 
@@ -152,16 +154,14 @@ export default function NewBlogPost() {
                   <label className="text-sm font-medium text-primary mb-2 block">
                     Content *
                   </label>
-                  <Textarea
-                    placeholder="Write your blog post content here... (Supports Markdown)"
+                  <RichTextEditor
                     value={post.content}
-                    onChange={(e) => setPost(prev => ({ ...prev, content: e.target.value }))}
-                    rows={20}
-                    className="font-mono"
-                    data-testid="textarea-content"
+                    onChange={(content) => setPost(prev => ({ ...prev, content }))}
+                    placeholder="Write your blog post content here... Use the toolbar to format text and add animations!"
+                    className="min-h-[400px]"
                   />
                   <p className="text-xs text-muted-foreground mt-2">
-                    Tip: You can use Markdown formatting for headers, links, lists, and more.
+                    Tip: Select text and use the Animations button to add visual effects like fade-in, bounce, and shimmer.
                   </p>
                 </div>
 
@@ -299,6 +299,9 @@ export default function NewBlogPost() {
                 </div>
               </div>
             </Card>
+
+            {/* Animation Preview */}
+            <AnimationPreview />
           </div>
         </div>
       </div>
