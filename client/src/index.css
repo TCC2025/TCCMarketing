@@ -273,32 +273,21 @@
   /* Gradient "brush" art */
   .hero__art {
     position: absolute; 
-    inset: auto 0 0 0; /* sits low behind content */
+    left: 0; 
+    right: 0; 
+    bottom: -8%; /* sits low */
     width: 140%; 
     height: auto; 
-    transform: translateY(12%);
     z-index: 0; 
     pointer-events: none;
-    animation: hero-pan 30s linear infinite;
-    filter: blur(0.2px); /* subtle anti-alias fix */
+    /* keep full-strength color: do NOT set opacity on the svg or path */
   }
   
-  /* Mobile: lighter opacity */
-  @media (max-width: 600px) {
-    .hero__art {
-      opacity: 0.35;
-    }
-  }
-  
-  @media (prefers-reduced-motion: reduce) {
+  @media (max-width: 640px) { 
     .hero__art { 
-      animation: none; 
-    }
-  }
-  @keyframes hero-pan {
-    0%   { transform: translate(-5%,12%); }
-    50%  { transform: translate(-10%,10%); }
-    100% { transform: translate(-5%,12%); }
+      width: 160%; 
+      bottom: -12%; 
+    } 
   }
   
   .text-gradient {
