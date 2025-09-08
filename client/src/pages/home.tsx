@@ -146,34 +146,66 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="hero" id="home">
-        <svg className="hero__art" viewBox="0 0 2000 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg
+          className="hero__art"
+          viewBox="0 0 2000 600"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMidYMid slice"
+          aria-hidden="true"
+        >
           <defs>
-            <linearGradient id="tccGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="2000" y2="0">
-              <stop offset="0%" stopColor="#10676F"/>
-              <stop offset="22%" stopColor="#0F2435"/>
-              <stop offset="48%" stopColor="#D89B2D"/>
-              <stop offset="74%" stopColor="#F07B1E"/>
-              <stop offset="100%" stopColor="#E7156A"/>
+            <linearGradient
+              id="tccGrad"
+              gradientUnits="userSpaceOnUse"
+              x1="0"
+              y1="0"
+              x2="2000"
+              y2="0"
+            >
+              <stop offset="0%" stopColor="#10676F" />
+              <stop offset="22%" stopColor="#0F2435" />
+              <stop offset="48%" stopColor="#D89B2D" />
+              <stop offset="74%" stopColor="#F07B1E" />
+              <stop offset="100%" stopColor="#E7156A" />
             </linearGradient>
           </defs>
-          <path d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z" fill="url(#tccGrad)"/>
+          <path
+            d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z"
+            fill="url(#tccGrad)"
+          />
         </svg>
 
         <div className="container">
           <p className="hero__eyebrow">Modern Solutions for a Dynamic World</p>
 
           <h1 className="hero__title">
-            <span>Cut Through the Noise.</span><br />
+            <span>Cut Through the Noise.</span>
+            <br />
             <span className="hero__title--teal">Grow With Clarity.</span>
           </h1>
 
           <p className="hero__subhead">
-            From customer campaigns to hiring funnels, we align your brand and marketing to do more with less—backed by AI-driven strategy and an enterprise-grade lens. We help SMBs, startups, and mid-market teams remove friction, cut waste, and accelerate measurable outcomes.
+            From customer campaigns to hiring funnels, we align your brand and
+            marketing to do more with less—backed by AI-driven strategy and an
+            enterprise-grade lens. We help SMBs, startups, and mid-market teams
+            remove friction, cut waste, and accelerate measurable outcomes.
           </p>
 
           <div className="hero__ctas">
-            <a className="btn btn--primary" href="#contact" data-testid="button-strategy-consult">Start Your Strategy Consult</a>
-            <a className="btn btn--ghost" href="#blueprint" data-testid="button-blueprint">Get the Blueprint</a>
+            <a
+              className="btn btn--primary"
+              href="#contact"
+              data-testid="button-strategy-consult"
+            >
+              Start Your Strategy Consult
+            </a>
+            <a
+              className="btn btn--ghost"
+              href="#blueprint"
+              data-testid="button-blueprint"
+            >
+              Get the Blueprint
+            </a>
           </div>
 
           <div className="proof-grid">
@@ -198,8 +230,9 @@ export default function Home() {
           <p className="eyebrow">What We Do</p>
           <h2 className="services__title">Our Expertise</h2>
           <p className="services__subhead">
-            Strategic marketing that pulls double duty for growth and hiring. We design systems,
-            not one-offs—so brand, funnels, and automation compound.
+            Strategic marketing that pulls double duty for growth and hiring. We
+            design systems, not one-offs—so brand, funnels, and automation
+            compound.
           </p>
 
           <div className="services__grid">
@@ -208,76 +241,113 @@ export default function Home() {
               <div className="svc-card__bar"></div>
               <h3 className="svc-card__title">Employer Branding & EVP</h3>
               <p className="svc-card__lede">
-                Clarify the promise, proof, and story that attract the right talent and customers.
+                Clarify the promise, proof, and story that attract the right
+                talent and customers.
               </p>
               <ul className="svc-card__list">
                 <li>EVP & message kit</li>
                 <li>Career site & landing pages</li>
                 <li>Proof library & testimonials</li>
               </ul>
-              <a href="/services/employer-branding" className="svc-card__link">Explore this service →</a>
+              <a href="/services/employer-branding" className="svc-card__link">
+                Explore this service →
+              </a>
             </article>
 
             {/* Card 2 */}
             <article className="svc-card">
               <div className="svc-card__bar"></div>
-              <h3 className="svc-card__title">Recruitment Marketing & Funnels</h3>
+              <h3 className="svc-card__title">
+                Recruitment Marketing & Funnels
+              </h3>
               <p className="svc-card__lede">
-                High-signal sourcing and conversion flows that cut waste and reduce time-to-hire.
+                High-signal sourcing and conversion flows that cut waste and
+                reduce time-to-hire.
               </p>
               <ul className="svc-card__list">
                 <li>Channel mix & media plan</li>
                 <li>Funnel scorecard & CRO</li>
                 <li>Analytics with guardrails</li>
               </ul>
-              <a href="/services/recruitment-marketing" className="svc-card__link">Explore this service →</a>
+              <a
+                href="/services/recruitment-marketing"
+                className="svc-card__link"
+              >
+                Explore this service →
+              </a>
             </article>
 
             {/* Card 3 */}
             <article className="svc-card">
               <div className="svc-card__bar"></div>
-              <h3 className="svc-card__title">AI-Driven Marketing & Automation</h3>
+              <h3 className="svc-card__title">
+                AI-Driven Marketing & Automation
+              </h3>
               <p className="svc-card__lede">
-                Sequenced campaigns and workflows that scale personalization without adding headcount.
+                Sequenced campaigns and workflows that scale personalization
+                without adding headcount.
               </p>
               <ul className="svc-card__list">
                 <li>CRM/CDP hygiene & journeys</li>
                 <li>Email/SMS & lead routing</li>
                 <li>Dashboards & QA governance</li>
               </ul>
-              <a href="/services/ai-marketing" className="svc-card__link">Explore this service →</a>
+              <a href="/services/ai-marketing" className="svc-card__link">
+                Explore this service →
+              </a>
             </article>
 
             {/* Card 4 */}
             <article className="svc-card">
               <div className="svc-card__bar"></div>
-              <h3 className="svc-card__title">Fractional CMO / Growth Strategy</h3>
+              <h3 className="svc-card__title">
+                Fractional CMO / Growth Strategy
+              </h3>
               <p className="svc-card__lede">
-                Executive-level strategy and operating cadence—enterprise rigor without full-time overhead.
+                Executive-level strategy and operating cadence—enterprise rigor
+                without full-time overhead.
               </p>
               <ul className="svc-card__list">
                 <li>90-day plan & OKRs</li>
                 <li>Positioning & offer design</li>
                 <li>RevOps & roadmap stewardship</li>
               </ul>
-              <a href="/services/fractional-cmo" className="svc-card__link">Explore this service →</a>
+              <a href="/services/fractional-cmo" className="svc-card__link">
+                Explore this service →
+              </a>
             </article>
           </div>
 
           {/* Align360 strip */}
           <div className="process-strip" aria-label="Align360 process">
-            <div className="step"><span>Audit</span><em> see the whole system</em></div>
-            <div className="step"><span>Prioritize</span><em> pick high-leverage fixes</em></div>
-            <div className="step"><span>Enable</span><em> deploy, measure, compound</em></div>
+            <div className="step">
+              <span>Audit</span>
+              <em> see the whole system</em>
+            </div>
+            <div className="step">
+              <span>Prioritize</span>
+              <em> pick high-leverage fixes</em>
+            </div>
+            <div className="step">
+              <span>Enable</span>
+              <em> deploy, measure, compound</em>
+            </div>
           </div>
 
           {/* Section CTA */}
           <div className="services__cta">
             <h3 className="services__cta-title">Not sure where to start?</h3>
-            <p className="services__cta-sub">Begin with a 30-minute Strategy Consult or grab the Align360™ Starter Kit.</p>
+            <p className="services__cta-sub">
+              Begin with a 30-minute Strategy Consult or grab the Align360™
+              Starter Kit.
+            </p>
             <div className="services__cta-row">
-              <a className="btn btn--primary" href="#contact">Start Your Strategy Consult</a>
-              <a className="btn btn--ghost" href="#blueprint">Get the Starter Kit</a>
+              <a className="btn btn--primary" href="#contact">
+                Start Your Strategy Consult
+              </a>
+              <a className="btn btn--ghost" href="#blueprint">
+                Get the Starter Kit
+              </a>
             </div>
           </div>
         </div>
