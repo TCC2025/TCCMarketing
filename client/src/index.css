@@ -100,15 +100,15 @@
     position: relative;
     background: #F8F6F2;
     overflow: hidden;
-    padding: clamp(36px, 6vw, 88px) 0 clamp(18px, 3.5vw, 36px);
-    min-height: 68vh;
+    padding: clamp(28px, 5vw, 72px) 0 clamp(12px, 2.5vw, 24px);
+    min-height: 62vh;
   }
 
   .hero__art {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -1%;
+    bottom: 8%;
     width: 150%;
     height: auto;
     z-index: 0;
@@ -156,8 +156,8 @@
   .hero__support.microcopy {
     font-size: 14px;
     color: var(--tcc-muted);
-    margin-top: 12px;
-    margin-bottom: 16px;
+    margin-top: 8px;
+    margin-bottom: 10px;
     font-weight: 400;
   }
   
@@ -278,7 +278,7 @@
     text-transform: uppercase;
     color: #3C4A57;
     background: #fff;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
   }
 
   /* Title */
@@ -298,9 +298,9 @@
   .hero__subhead {
     color: #415262;
     max-width: 700px;
-    margin: 0 auto 18px;
+    margin: 0 auto 14px;
     font-size: clamp(18px, 1.25vw, 21px);
-    line-height: 1.6;
+    line-height: 1.55;
   }
 
   /* CTAs */
@@ -309,7 +309,7 @@
     gap: 14px;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 18px;
+    margin-bottom: 12px;
   }
 
   .btn {
