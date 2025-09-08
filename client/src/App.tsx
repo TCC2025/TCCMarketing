@@ -14,26 +14,37 @@ import About from "@/pages/about";
 import Contact from "@/pages/contact";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import AdminLogin from "@/pages/admin/login";
+import AdminDashboard from "@/pages/admin/dashboard";
+import NewBlogPost from "@/pages/admin/blog/new";
 
 function Router() {
   return (
-    <>
-      <Header />
-      <main id="main-content">
-        <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/services" component={Services} />
-          <Route path="/case-studies" component={CaseStudies} />
-          <Route path="/insights" component={Insights} />
-          <Route path="/blog" component={Blog} />
-          <Route path="/brand-colors" component={BrandColors} />
-          <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} />
-          <Route component={NotFound} />
-        </Switch>
-      </main>
-      <Footer />
-    </>
+    <Switch>
+      {/* Admin Routes - No header/footer */}
+      <Route path="/admin/login" component={AdminLogin} />
+      <Route path="/admin/dashboard" component={AdminDashboard} />
+      <Route path="/admin/blog/new" component={NewBlogPost} />
+      
+      {/* Public Routes - With header/footer */}
+      <Route>
+        <Header />
+        <main id="main-content">
+          <Switch>
+            <Route path="/" component={Home} />
+            <Route path="/services" component={Services} />
+            <Route path="/case-studies" component={CaseStudies} />
+            <Route path="/insights" component={Insights} />
+            <Route path="/blog" component={Blog} />
+            <Route path="/brand-colors" component={BrandColors} />
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+            <Route component={NotFound} />
+          </Switch>
+        </main>
+        <Footer />
+      </Route>
+    </Switch>
   );
 }
 

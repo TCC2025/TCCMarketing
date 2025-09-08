@@ -7,6 +7,27 @@ import {
 } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Admin Authentication
+  app.post("/api/admin/login", async (req, res) => {
+    const { username, password } = req.body;
+    
+    // Simple admin auth (you can enhance this later)
+    if (username === "admin" && password === "admin123") {
+      const token = "admin_" + Date.now(); // Simple token for demo
+      res.json({ token, message: "Login successful" });
+    } else {
+      res.status(401).json({ error: "Invalid credentials" });
+    }
+  });
+
+  // Admin middleware for protected routes
+  const adminAuth = (req: any, res: any, next: any) => {
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith('Bearer admin_')) {
+      return res.status(401).json({ error: "Unauthorized" });
+    }
+    next();
+  };
   // Services API
   app.get("/api/services", async (req, res) => {
     try {
