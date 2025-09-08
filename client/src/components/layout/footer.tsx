@@ -28,10 +28,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-2">
-            <h3 className="font-playfair text-2xl font-semibold mb-2">
+            <h3 className="font-playfair text-2xl font-semibold mb-4 tracking-wide">
               THE COLLECTIVE
             </h3>
-            <p className="text-sm font-medium mb-4 opacity-70">by Thompson & Co</p>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed">
               Modern solutions for employer branding, recruitment marketing, 
               and AI-driven automation in today's dynamic business landscape.
