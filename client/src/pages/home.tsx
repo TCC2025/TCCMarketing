@@ -147,9 +147,16 @@ export default function Home() {
       {/* Hero Section - SVG Gradient Brush */}
       <section className="hero">
         {/* Gradient "brush" (inline SVG, no image file) */}
-        <svg className="hero__art" viewBox="0 0 2000 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg className="hero__art" 
+             viewBox="0 0 2000 600"
+             xmlns="http://www.w3.org/2000/svg"
+             preserveAspectRatio="xMidYMid slice"
+             aria-hidden="true">
           <defs>
-            <linearGradient id="tccGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            {/* Force gradient to span the full 2000px width */}
+            <linearGradient id="tccGrad"
+              gradientUnits="userSpaceOnUse"
+              x1="0" y1="0" x2="2000" y2="0">
               <stop offset="0%" stopColor="#10676F"/>
               <stop offset="22%" stopColor="#0F2435"/>
               <stop offset="48%" stopColor="#D89B2D"/>
@@ -157,7 +164,10 @@ export default function Home() {
               <stop offset="100%" stopColor="#E7156A"/>
             </linearGradient>
           </defs>
-          <path d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z" fill="url(#tccGrad)"/>
+
+          {/* Wave path: spans full width so all stops are visible */}
+          <path d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z"
+                fill="url(#tccGrad)"/>
         </svg>
 
         <div className="container">
