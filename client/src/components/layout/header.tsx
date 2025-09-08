@@ -25,9 +25,8 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" role="navigation" aria-label="Main navigation">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <Link href="/" className="font-playfair text-xl font-semibold text-primary hover:text-accent transition-colors duration-200">
+            <Link href="/" className="font-playfair text-xl font-semibold text-primary hover:text-accent transition-colors duration-200 tracking-wide">
               THE COLLECTIVE
-              <span className="text-sm font-normal block text-muted-foreground">by Thompson & Co</span>
             </Link>
           </div>
           

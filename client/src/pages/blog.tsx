@@ -30,10 +30,10 @@ export default function Blog() {
       <section className="hero-gradient py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center relative z-10">
-            <h1 className="font-playfair text-4xl md:text-6xl font-bold text-charcoal mb-6">
-              Insights & <span className="text-gradient">Thought Leadership</span>
+            <h1 className="font-playfair text-4xl md:text-6xl font-bold text-primary mb-6">
+              Insights & Thought Leadership
             </h1>
-            <p className="text-xl md:text-2xl text-slate-blue-grey max-w-4xl mx-auto mb-12 leading-relaxed">
+            <p className="text-lg md:text-xl text-secondary max-w-3xl mx-auto mb-12 leading-relaxed">
               Expert perspectives on the future of talent acquisition, employer branding, 
               and modern business solutions in today's dynamic landscape.
             </p>
@@ -59,7 +59,7 @@ export default function Blog() {
                     variant={selectedCategory === category ? "default" : "outline"}
                     onClick={() => setSelectedCategory(category)}
                     className={`rounded-full ${selectedCategory === category 
-                      ? "gradient-button text-white" 
+                      ? "bg-primary text-white" 
                       : "bg-white/90 backdrop-blur-sm border-2 hover:border-accent"
                     }`}
                     data-testid={`filter-${category.toLowerCase().replace(' ', '-').replace('&', 'and')}`}
@@ -228,7 +228,7 @@ export default function Blog() {
           
           <Button 
             size="lg"
-            className="gradient-button text-white px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300 rounded-full"
+            className="bg-accent text-white px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300 rounded-full hover:bg-accent/90"
             data-testid="button-subscribe-insights"
           >
             Subscribe to Newsletter

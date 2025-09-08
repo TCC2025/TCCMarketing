@@ -156,7 +156,7 @@ export default function Home() {
                     <div className="w-16 h-16 gradient-button rounded-xl flex items-center justify-center mb-6 float-animation">
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="font-playfair text-xl font-semibold text-primary mb-4 group-hover:text-shimmer transition-all duration-300">
+                    <h3 className="font-playfair text-xl font-semibold text-primary mb-4 group-hover:text-accent transition-all duration-300">
                       {service.title}
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
@@ -250,7 +250,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             {statsData.map((stat, index) => (
               <div key={index} className={`text-center slide-in-up stagger-${index + 1} group`}>
-                <div className="font-playfair text-5xl font-bold mb-2 text-shimmer group-hover:scale-110 transition-transform duration-300">
+                <div className="font-playfair text-5xl font-bold mb-2 text-accent group-hover:scale-110 transition-transform duration-300">
                   {stat.value}
                 </div>
                 <p className="text-lg text-secondary group-hover:text-primary transition-colors duration-300">
@@ -271,7 +271,7 @@ export default function Home() {
                       <User className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-primary group-hover:text-shimmer transition-all duration-300">{testimonial.name}</h4>
+                      <h4 className="font-semibold text-primary group-hover:text-accent transition-all duration-300">{testimonial.name}</h4>
                       <p className="text-sm text-muted-foreground">{testimonial.title}</p>
                     </div>
                   </div>
