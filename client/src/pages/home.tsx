@@ -106,7 +106,6 @@ export default function Home() {
   const serviceIcons = {
     "AI Marketing & Automation": Bot,
     "Employer Branding & Talent Marketing": Users,
-    "Fractional CMO": TrendingUp,
     "Executive Branding": Star
   };
 
@@ -116,32 +115,23 @@ export default function Home() {
       <section className="hero-gradient py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
-            <h1 className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-primary mb-6 leading-tight">
-              Where Strategy Meets<br />
-              <span className="text-gradient">Extraordinary Outcomes</span>
+            <h1 className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-charcoal mb-6 leading-tight relative z-10">
+              Modern Solutions<br />
+              <span className="text-gradient">for a Dynamic World</span>
             </h1>
-            <p className="text-xl md:text-2xl text-secondary max-w-4xl mx-auto mb-12 leading-relaxed">
-              Boutique consultancy specializing in employer branding, recruitment marketing, 
-              AI-driven automation, and fractional CMO services that transform how top-tier 
-              companies attract and engage talent.
+            <p className="text-xl md:text-2xl text-slate-blue-grey max-w-4xl mx-auto mb-12 leading-relaxed relative z-10">
+              The Collective by Thompson & Co provides modern solutions for employer branding, 
+              recruitment marketing, and AI-driven automation in today's dynamic business landscape.
             </p>
             
             {/* Dual CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center relative z-10">
               <Button 
                 size="lg"
-                className="bg-primary text-primary-foreground px-8 py-4 text-lg font-semibold hover:bg-primary/90 hover-lift"
-                data-testid="button-book-strategy-call"
+                className="gradient-button px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300 hover-lift rounded-full"
+                data-testid="button-get-in-touch"
               >
-                Book a Strategy Call
-              </Button>
-              <Button 
-                variant="outline"
-                size="lg"
-                className="border-2 border-accent text-accent px-8 py-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground"
-                data-testid="button-download-blueprint"
-              >
-                Download the Talent Marketing Blueprint 2025
+                GET IN TOUCH
               </Button>
             </div>
           </div>
@@ -157,7 +147,7 @@ export default function Home() {
             className="mb-16"
           />
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {servicesData.map((service, index) => {
               const IconComponent = serviceIcons[service.title as keyof typeof serviceIcons] || Bot;
               return (

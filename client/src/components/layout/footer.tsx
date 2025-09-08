@@ -7,14 +7,13 @@ export default function Footer() {
   const services = [
     { name: "AI Marketing & Automation", href: "/services" },
     { name: "Employer Branding", href: "/services" },
-    { name: "Fractional CMO", href: "/services" },
     { name: "Executive Branding", href: "/services" },
   ];
 
   const company = [
     { name: "About", href: "/about" },
     { name: "Case Studies", href: "/case-studies" },
-    { name: "Insights", href: "/insights" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -29,12 +28,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-2">
-            <h3 className="font-playfair text-2xl font-semibold mb-4">
-              Thompson & Co. Collective
+            <h3 className="font-playfair text-2xl font-semibold mb-2">
+              THE COLLECTIVE
             </h3>
+            <p className="text-sm font-medium mb-4 opacity-70">by Thompson & Co</p>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed">
-              Boutique consultancy specializing in employer branding, recruitment marketing, 
-              AI-driven automation, and fractional CMO services.
+              Modern solutions for employer branding, recruitment marketing, 
+              and AI-driven automation in today's dynamic business landscape.
             </p>
             <div className="flex space-x-4">
               <a
@@ -101,7 +101,7 @@ export default function Footer() {
         
         <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-primary-foreground/60 text-sm">
-            © {currentYear} Thompson & Co. Collective. All rights reserved.
+            © {currentYear} The Collective by Thompson & Co. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm text-primary-foreground/60 mt-4 md:mt-0">
             {legal.map((item) => (
@@ -125,17 +125,16 @@ export default function Footer() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "Thompson & Co. Collective",
+            "name": "The Collective by Thompson & Co",
             "url": "https://thompsonco.com",
-            "description": "Boutique consultancy specializing in employer branding, recruitment marketing, AI-driven marketing automation, and fractional CMO services.",
+            "description": "The Collective by Thompson & Co provides modern solutions for employer branding, recruitment marketing, and AI-driven automation in today's dynamic business landscape.",
             "serviceType": [
               "Employer Branding",
               "Recruitment Marketing", 
               "AI Marketing Automation",
-              "Fractional CMO Services",
               "Executive Branding"
             ],
-            "slogan": "Where Strategy Meets Extraordinary Outcomes"
+            "slogan": "Modern Solutions for a Dynamic World"
           })
         }}
       />
