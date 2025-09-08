@@ -110,82 +110,24 @@
 }
 
 @layer components {
-  .hero-gradient {
-    background: var(--ivory-bg);
+  .hero-editorial {
+    background: linear-gradient(135deg, #F2E6D7 0%, #FFFFFF 50%, #F8F9FA 100%);
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid rgba(15, 36, 53, 0.08);
   }
   
-  .hero-brushstroke {
-    position: absolute;
-    top: -5%;
-    right: -25%;
-    width: 120%;
-    height: 85%;
-    background: var(--brushstroke-gradient);
-    transform: rotate(-12deg) skewY(-3deg);
-    border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%;
-    filter: blur(0.8px);
-    opacity: 0.9;
-    z-index: 1;
-    animation: gentleFloat 10s ease-in-out infinite, subtleShift 15s ease-in-out infinite, breathePulse 8s ease-in-out infinite;
-    box-shadow: 0 30px 80px rgba(231, 21, 106, 0.2), 0 40px 100px rgba(16, 103, 111, 0.15), 0 10px 40px rgba(216, 155, 45, 0.1);
-  }
-  
-  .hero-brushstroke::before {
+  .hero-editorial::before {
     content: '';
     position: absolute;
-    inset: -12px;
-    background: linear-gradient(140deg, rgba(231, 21, 106, 0.4) 0%, rgba(240, 123, 30, 0.3) 25%, rgba(216, 155, 45, 0.4) 50%, rgba(16, 103, 111, 0.3) 75%, rgba(15, 36, 53, 0.4) 100%);
-    border-radius: inherit;
-    filter: blur(8px);
-    opacity: 0.6;
-    z-index: -1;
-    animation: breathe 8s ease-in-out infinite;
-  }
-  
-  .hero-brushstroke::after {
-    content: '';
-    position: absolute;
-    inset: 4px;
-    background: linear-gradient(110deg, rgba(231, 21, 106, 0.7) 0%, rgba(240, 123, 30, 0.6) 30%, rgba(216, 155, 45, 0.8) 55%, rgba(16, 103, 111, 0.6) 80%, rgba(15, 36, 53, 0.7) 100%);
-    border-radius: inherit;
-    filter: blur(1px);
-    opacity: 0.8;
-    z-index: -1;
-    animation: subtleWave 12s ease-in-out infinite;
-  }
-  
-  @keyframes gentleFloat {
-    0%, 100% { transform: rotate(-12deg) skewY(-3deg) translateY(0px); }
-    50% { transform: rotate(-12deg) skewY(-3deg) translateY(-12px); }
-  }
-  
-  @keyframes subtleShift {
-    0%, 100% { transform: rotate(-12deg) skewY(-3deg) translateX(0px); }
-    33% { transform: rotate(-10deg) skewY(-2deg) translateX(8px); }
-    66% { transform: rotate(-14deg) skewY(-4deg) translateX(-4px); }
-  }
-  
-  @keyframes breathe {
-    0%, 100% { transform: scale(1); opacity: 0.6; }
-    50% { transform: scale(1.05); opacity: 0.4; }
-  }
-  
-  @keyframes breathePulse {
-    0%, 100% { opacity: 0.9; }
-    50% { opacity: 0.7; }
-  }
-  
-  @keyframes subtleWave {
-    0%, 100% { transform: translateX(0px) scale(1); }
-    25% { transform: translateX(3px) scale(1.01); }
-    75% { transform: translateX(-2px) scale(0.99); }
-  }
-  
-  @keyframes gradientShift {
-    0%, 100% { opacity: 1; transform: translateX(0%); }
-    50% { opacity: 0.8; transform: translateX(2%); }
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      linear-gradient(90deg, transparent 0%, rgba(15, 36, 53, 0.02) 50%, transparent 100%),
+      radial-gradient(circle at 30% 20%, rgba(16, 103, 111, 0.03) 0%, transparent 50%);
+    pointer-events: none;
   }
   
   .text-gradient {
