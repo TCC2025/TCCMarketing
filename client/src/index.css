@@ -100,8 +100,7 @@
     position: relative;
     background: #F8F6F2;
     overflow: hidden;
-    min-height: 70vh;
-    padding: 20px 0 10px 0;
+    padding: 20px 0 0 0;
   }
 
   .hero__art {
@@ -156,7 +155,7 @@
     font-size: 14px;
     color: var(--tcc-muted);
     margin-top: 12px;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     font-weight: 400;
   }
   
@@ -164,6 +163,7 @@
     font-size: 18px;
     color: var(--tcc-ink);
     margin-top: 0;
+    margin-bottom: 0;
     font-style: italic;
     font-weight: bold;
     opacity: 0.9;
@@ -171,12 +171,12 @@
 
   /* Wrapper for the wave + overlays */
   .hero__waveWrap{
-    position: absolute;
-    bottom: -60px;
+    position: relative;
     display: block;
     width: 110%;
-    height: 220px;
+    height: 200px;
     left: -5%;
+    margin-top: 30px;
   }
 
   /* The wave SVG itself */
