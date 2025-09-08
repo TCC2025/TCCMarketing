@@ -14,6 +14,8 @@
   --charcoal: hsl(0, 0%, 12%); /* #1F1F1F */
   --slate-blue-grey: hsl(210, 18%, 35%); /* #4A5A6A */
   --deep-navy: hsl(210, 69%, 11%); /* #0B1C2C */
+  --professional-navy: hsl(215, 25%, 27%); /* #334155 */
+  --warm-gold: hsl(32, 95%, 44%); /* #d97706 */
   --soft-ivory: hsl(40, 20%, 96%); /* #F6F1EB */
   --gradient-bg: linear-gradient(135deg, #FF006E 0%, #8338EC 30%, #3A86FF 60%, #00C896 100%);
   
@@ -24,13 +26,13 @@
   --card-foreground: hsl(0, 0%, 12%);
   --popover: hsl(0, 0%, 100%);
   --popover-foreground: hsl(0, 0%, 12%);
-  --primary: hsl(325, 100%, 50%); /* Vibrant Pink */
+  --primary: hsl(215, 25%, 27%); /* Professional Navy */
   --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(266, 85%, 58%); /* Vibrant Purple */
+  --secondary: hsl(215, 20%, 45%); /* Slate Grey */
   --secondary-foreground: hsl(0, 0%, 100%);
   --muted: hsl(40, 20%, 90%);
   --muted-foreground: hsl(210, 18%, 35%);
-  --accent: hsl(217, 100%, 62%); /* Vibrant Blue */
+  --accent: hsl(32, 95%, 44%); /* Warm Gold */
   --accent-foreground: hsl(0, 0%, 100%);
   --destructive: hsl(0, 84%, 60%);
   --destructive-foreground: hsl(0, 0%, 98%);
@@ -139,7 +141,7 @@
   }
   
   .gradient-button {
-    background: var(--primary-gradient);
+    background: var(--accent);
     color: white;
     border: none;
     position: relative;
@@ -237,12 +239,8 @@
   }
   
   .text-shimmer {
-    background: linear-gradient(90deg, #FF006E 0%, #8338EC 50%, #3A86FF 100%);
-    background-size: 200% 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shimmer 3s linear infinite;
+    color: var(--accent);
+    transition: color 0.3s ease;
   }
   
   @keyframes shimmer {

@@ -115,13 +115,12 @@ export default function Home() {
       <section className="hero-gradient py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
-            <h1 className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-charcoal mb-6 leading-tight relative z-10">
+            <h1 className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-primary mb-6 leading-tight relative z-10">
               Modern Solutions<br />
-              <span className="text-gradient">for a Dynamic World</span>
+              for a Dynamic World
             </h1>
-            <p className="text-xl md:text-2xl text-slate-blue-grey max-w-4xl mx-auto mb-12 leading-relaxed relative z-10">
-              The Collective by Thompson & Co provides modern solutions for employer branding, 
-              recruitment marketing, and AI-driven automation in today's dynamic business landscape.
+            <p className="text-lg md:text-xl text-secondary max-w-3xl mx-auto mb-12 leading-relaxed relative z-10">
+              Welcome to Thompson & Co's consultancy, The Collective: experts in recruitment marketing, employer branding, and talent strategy.
             </p>
             
             {/* Dual CTAs */}
