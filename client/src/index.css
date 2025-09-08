@@ -100,21 +100,23 @@
     position: relative;
     background: #F8F6F2;
     overflow: hidden;
-    padding: 20px 0 0 0;
+    padding: clamp(36px, 6vw, 88px) 0 clamp(18px, 3.5vw, 36px);
+    min-height: 68vh;
   }
 
   .hero__art {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -8%;
-    width: 140%;
+    bottom: -1%;
+    width: 150%;
     height: auto;
     z-index: 0;
     pointer-events: none;
     animation: hero-pan 28s linear infinite;
     /* CSS fallback for SVG gradient */
     background: var(--primary-gradient);
+    filter: saturate(1.08) contrast(1.05);
   }
   .hero__art::after {
     content: '';
@@ -254,10 +256,14 @@
     text-align: center;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
+    .hero {
+      padding: 28px 0 22px;
+      min-height: 72vh;
+    }
     .hero__art {
-      width: 160%;
-      bottom: -12%;
+      bottom: -6%;
+      width: 165%;
     }
   }
 
@@ -279,8 +285,8 @@
   .hero__title {
     color: var(--tcc-navy);
     font-size: clamp(40px, 6vw, 72px);
-    line-height: 1.06;
-    margin: 0 0 1rem;
+    line-height: 1.05;
+    margin: 0 0 8px;
     @apply font-serif;
   }
 
@@ -292,7 +298,7 @@
   .hero__subhead {
     color: #415262;
     max-width: 700px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 18px;
     font-size: clamp(18px, 1.25vw, 21px);
     line-height: 1.6;
   }
@@ -303,7 +309,7 @@
     gap: 14px;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 36px;
+    margin-bottom: 18px;
   }
 
   .btn {
