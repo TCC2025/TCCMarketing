@@ -159,7 +159,7 @@ export default function Home() {
               gradientUnits="userSpaceOnUse"
               x1="0"
               y1="0"
-              x2="2000"
+              x2="1200"
               y2="0"
             >
               <stop offset="0%" stopColor="#10676F" />
