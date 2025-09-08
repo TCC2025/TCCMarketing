@@ -144,19 +144,14 @@ export default function Home() {
         id="organization-schema"
       />
 
-      {/* Hero Section - SVG Gradient Brush */}
-      <section className="hero">
-        {/* Gradient "brush" (inline SVG, no image file) */}
-        <svg className="hero__art" 
-             viewBox="0 0 2000 600"
-             xmlns="http://www.w3.org/2000/svg"
-             preserveAspectRatio="xMidYMid slice"
-             aria-hidden="true">
+      {/* Hero Section */}
+      <section className="hero" id="home">
+        {/* Brand gradient brush (inline SVG, full-strength color) */}
+        <svg className="hero__art" viewBox="0 0 2000 600" xmlns="http://www.w3.org/2000/svg"
+             preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <defs>
-            {/* Compress gradient to fit visible wave area */}
-            <linearGradient id="tccGrad"
-              gradientUnits="userSpaceOnUse"
-              x1="0" y1="0" x2="1200" y2="0">
+            {/* Force full-width stops across the viewBox */}
+            <linearGradient id="tccGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="2000" y2="0">
               <stop offset="0%" stopColor="#10676F"/>
               <stop offset="22%" stopColor="#0F2435"/>
               <stop offset="48%" stopColor="#D89B2D"/>
@@ -164,42 +159,37 @@ export default function Home() {
               <stop offset="100%" stopColor="#E7156A"/>
             </linearGradient>
           </defs>
-
-          {/* Wave path that spans the compressed gradient */}
-          <path d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z"
-                fill="url(#tccGrad)"/>
+          {/* Wave path: adjust curve if desired */}
+          <path d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z" fill="url(#tccGrad)"/>
         </svg>
 
-        <div className="container">
-          <p className="eyebrow">Modern Solutions for a Dynamic World</p>
+        <div className="hero__container">
+          <p className="hero__eyebrow">Modern Solutions for a Dynamic World</p>
 
-          <h1>
+          <h1 className="hero__title">
             <span>Cut Through the Noise.</span><br />
-            <span className="teal">Grow With Clarity.</span>
+            <span className="hero__title--teal">Grow With Clarity.</span>
           </h1>
 
-          <p className="subhead">
+          <p className="hero__subhead">
             From customer campaigns to hiring funnels, we align your brand and marketing to do more with less—backed by AI-driven strategy and an enterprise-grade lens. We help SMBs, startups, and mid-market teams remove friction, cut waste, and accelerate measurable outcomes.
           </p>
 
-          <div className="cta-row">
+          <div className="hero__ctas">
             <a className="btn btn--primary" href="#contact" data-testid="button-strategy-consult">Start Your Strategy Consult</a>
             <a className="btn btn--ghost" href="#blueprint" data-testid="button-blueprint">Get the Blueprint</a>
           </div>
 
           <div className="proof-grid">
             <div className="proof-card">
-              <div className="proof-icon">💰</div>
               <div className="proof-stat">28%</div>
               <div className="proof-label">Lower Cost-Per-Apply</div>
             </div>
             <div className="proof-card">
-              <div className="proof-icon">🎯</div>
               <div className="proof-stat">2.1×</div>
               <div className="proof-label">Qualified Applications</div>
             </div>
             <div className="proof-card">
-              <div className="proof-icon">⚡</div>
               <div className="proof-stat">7→2</div>
               <div className="proof-label">Days to Interview</div>
             </div>

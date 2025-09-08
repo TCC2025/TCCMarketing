@@ -1,0 +1,51 @@
+<section class="hero" id="home">
+  <!-- Brand gradient brush (inline SVG, full-strength color) -->
+  <svg class="hero__art" viewBox="0 0 2000 600" xmlns="http://www.w3.org/2000/svg"
+       preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <!-- Force full-width stops across the viewBox -->
+      <linearGradient id="tccGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="2000" y2="0">
+        <stop offset="0%"   stop-color="#10676F"/>
+        <stop offset="22%"  stop-color="#0F2435"/>
+        <stop offset="48%"  stop-color="#D89B2D"/>
+        <stop offset="74%"  stop-color="#F07B1E"/>
+        <stop offset="100%" stop-color="#E7156A"/>
+      </linearGradient>
+    </defs>
+    <!-- Wave path: adjust curve if desired -->
+    <path d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z" fill="url(#tccGrad)"/>
+  </svg>
+
+  <div class="hero__container">
+    <p class="hero__eyebrow">Modern Solutions for a Dynamic World</p>
+
+    <h1 class="hero__title">
+      <span>Cut Through the Noise.</span><br />
+      <span class="hero__title--teal">Grow With Clarity.</span>
+    </h1>
+
+    <p class="hero__subhead">
+      From customer campaigns to hiring funnels, we align your brand and marketing to do more with less—backed by AI-driven strategy and an enterprise-grade lens. We help SMBs, startups, and mid-market teams remove friction, cut waste, and accelerate measurable outcomes.
+    </p>
+
+    <div class="hero__ctas">
+      <a class="btn btn--primary" href="#contact">Start Your Strategy Consult</a>
+      <a class="btn btn--ghost" href="#blueprint">Get the Blueprint</a>
+    </div>
+
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-stat">28%</div>
+        <div class="proof-label">Lower Cost-Per-Apply</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stat">2.1×</div>
+        <div class="proof-label">Qualified Applications</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stat">7→2</div>
+        <div class="proof-label">Days to Interview</div>
+      </div>
+    </div>
+  </div>
+</section>
