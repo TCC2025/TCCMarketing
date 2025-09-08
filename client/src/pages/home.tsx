@@ -96,6 +96,9 @@ export default function Home() {
       });
 
       if (response.ok) {
+        // Track newsletter signup
+        trackFormSubmission("newsletter_signup", "footer");
+        
         toast({
           title: "Subscribed!",
           description: "You're now subscribed to our weekly insights.",

@@ -58,6 +58,9 @@ export default function Contact() {
       });
 
       if (response.ok) {
+        // Track contact form submission
+        trackFormSubmission("contact_form", "contact_page");
+        
         toast({
           title: "Message Sent!",
           description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
