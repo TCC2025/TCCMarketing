@@ -19,9 +19,15 @@
     <lastmod>2024-12-15</lastmod>
   </url>
   <url>
-    <loc>https://thompsonco.com/insights</loc>
+    <loc>https://thompsonco.com/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <lastmod>2024-12-15</lastmod>
+  </url>
+  <url>
+    <loc>https://thompsonco.com/insights</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
     <lastmod>2024-12-15</lastmod>
   </url>
   <url>

@@ -67,33 +67,38 @@ function updateOrCreateLinkTag(rel: string, href: string) {
 // Page-specific SEO data
 export const seoData = {
   home: {
-    title: "Thompson & Co. Collective - Where Strategy Meets Extraordinary Outcomes",
-    description: "Boutique consultancy specializing in employer branding, recruitment marketing, AI-driven marketing automation, and fractional CMO services that transform talent acquisition.",
-    keywords: ["employer branding", "recruitment marketing", "AI marketing automation", "fractional CMO", "talent acquisition", "executive branding"]
+    title: "The Collective by Thompson & Co - Modern Solutions for a Dynamic World",
+    description: "The Collective by Thompson & Co provides modern solutions for employer branding, recruitment marketing, and AI-driven automation in today's dynamic business landscape.",
+    keywords: ["employer branding", "recruitment marketing", "AI marketing automation", "talent acquisition", "executive branding", "modern solutions"]
   },
   services: {
-    title: "Our Services - Thompson & Co. Collective",
-    description: "Comprehensive employer branding, AI marketing automation, fractional CMO, and executive branding services designed to transform your talent acquisition strategy.",
-    keywords: ["employer branding services", "AI recruitment marketing", "fractional CMO services", "executive branding", "talent marketing"]
+    title: "Our Services - The Collective by Thompson & Co",
+    description: "Comprehensive employer branding, AI marketing automation, and executive branding services designed to transform your talent acquisition strategy for the modern world.",
+    keywords: ["employer branding services", "AI recruitment marketing", "executive branding", "talent marketing", "modern solutions"]
   },
   caseStudies: {
-    title: "Case Studies - Thompson & Co. Collective",
+    title: "Case Studies - The Collective by Thompson & Co",
     description: "Real results from our partnerships with industry-leading organizations. See how we've transformed talent acquisition strategies and delivered measurable outcomes.",
     keywords: ["employer branding case studies", "recruitment marketing results", "talent acquisition success stories"]
   },
+  blog: {
+    title: "Blog - The Collective by Thompson & Co",
+    description: "Expert insights on talent acquisition, employer branding, AI in recruitment, and modern business solutions. Stay ahead with our thought leadership.",
+    keywords: ["talent acquisition blog", "employer branding insights", "recruitment marketing trends", "AI in recruiting", "business solutions"]
+  },
   insights: {
-    title: "Insights & Thought Leadership - Thompson & Co. Collective",
-    description: "Expert perspectives on the future of talent acquisition, employer branding, AI in recruitment, and strategic leadership insights from Thompson & Co. Collective.",
+    title: "Insights & Thought Leadership - The Collective by Thompson & Co", 
+    description: "Expert perspectives on the future of talent acquisition, employer branding, AI in recruitment, and strategic leadership insights from The Collective by Thompson & Co.",
     keywords: ["talent acquisition insights", "employer branding trends", "recruitment marketing best practices", "AI in recruiting"]
   },
   about: {
-    title: "About Us - Thompson & Co. Collective",
-    description: "Learn about Thompson & Co. Collective's mission to transform talent acquisition through strategic employer branding, innovative marketing, and fractional leadership services.",
-    keywords: ["about Thompson Co Collective", "employer branding consultancy", "talent acquisition experts"]
+    title: "About Us - The Collective by Thompson & Co",
+    description: "Learn about The Collective by Thompson & Co's mission to provide modern solutions for employer branding and talent acquisition in today's dynamic world.",
+    keywords: ["about The Collective", "employer branding consultancy", "talent acquisition experts", "modern solutions"]
   },
   contact: {
-    title: "Contact Us - Thompson & Co. Collective",
-    description: "Ready to transform your talent strategy? Get in touch with Thompson & Co. Collective for a consultation on employer branding, recruitment marketing, and fractional CMO services.",
+    title: "Contact Us - The Collective by Thompson & Co", 
+    description: "Ready to transform your talent strategy? Get in touch with The Collective by Thompson & Co for modern solutions in employer branding and recruitment marketing.",
     keywords: ["contact talent consultants", "employer branding consultation", "recruitment marketing experts"]
   }
 };
