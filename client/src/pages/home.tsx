@@ -153,20 +153,20 @@ export default function Home() {
              preserveAspectRatio="xMidYMid slice"
              aria-hidden="true">
           <defs>
-            {/* Force gradient to span the full 2000px width */}
+            {/* Gradient mapped to wider span to ensure all colors show */}
             <linearGradient id="tccGrad"
               gradientUnits="userSpaceOnUse"
-              x1="0" y1="0" x2="2000" y2="0">
+              x1="0" y1="0" x2="2800" y2="0">
               <stop offset="0%" stopColor="#10676F"/>
-              <stop offset="22%" stopColor="#0F2435"/>
-              <stop offset="48%" stopColor="#D89B2D"/>
-              <stop offset="74%" stopColor="#F07B1E"/>
+              <stop offset="25%" stopColor="#0F2435"/>
+              <stop offset="50%" stopColor="#D89B2D"/>
+              <stop offset="75%" stopColor="#F07B1E"/>
               <stop offset="100%" stopColor="#E7156A"/>
             </linearGradient>
           </defs>
 
-          {/* Wave path: spans full width so all stops are visible */}
-          <path d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z"
+          {/* Wider wave path to capture all gradient stops */}
+          <path d="M-400,280 C200,120 600,520 1000,260 C1400,100 1800,420 2400,240 L2400,600 L-400,600 Z"
                 fill="url(#tccGrad)"/>
         </svg>
 
