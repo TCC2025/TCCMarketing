@@ -28,7 +28,8 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <Link href="/" className="font-playfair text-xl font-semibold text-primary hover:text-accent transition-colors duration-200">
-              Thompson & Co.
+              THE COLLECTIVE
+              <span className="text-sm font-normal block text-muted-foreground">by Thompson & Co</span>
             </Link>
           </div>
           

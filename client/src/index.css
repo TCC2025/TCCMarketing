@@ -5,12 +5,17 @@
 @tailwind utilities;
 
 :root {
-  /* Brand Colors - Thompson & Co. Collective */
+  /* Brand Colors - The Collective by Thompson & Co */
+  --primary-gradient: linear-gradient(135deg, #FF006E 0%, #8338EC 50%, #3A86FF 100%);
+  --vibrant-pink: hsl(325, 100%, 50%); /* #FF006E */
+  --vibrant-purple: hsl(266, 85%, 58%); /* #8338EC */
+  --vibrant-blue: hsl(217, 100%, 62%); /* #3A86FF */
+  --vibrant-teal: hsl(172, 100%, 40%); /* #00C896 */
   --charcoal: hsl(0, 0%, 12%); /* #1F1F1F */
   --slate-blue-grey: hsl(210, 18%, 35%); /* #4A5A6A */
   --deep-navy: hsl(210, 69%, 11%); /* #0B1C2C */
   --soft-ivory: hsl(40, 20%, 96%); /* #F6F1EB */
-  --rose-gold: hsl(345, 25%, 58%); /* #B76E79 */
+  --gradient-bg: linear-gradient(135deg, #FF006E 0%, #8338EC 30%, #3A86FF 60%, #00C896 100%);
   
   /* Tailwind Custom Properties */
   --background: hsl(40, 20%, 96%); /* Soft Ivory */
@@ -19,32 +24,32 @@
   --card-foreground: hsl(0, 0%, 12%);
   --popover: hsl(0, 0%, 100%);
   --popover-foreground: hsl(0, 0%, 12%);
-  --primary: hsl(0, 0%, 12%); /* Charcoal */
-  --primary-foreground: hsl(40, 20%, 96%); /* Soft Ivory */
-  --secondary: hsl(210, 18%, 35%); /* Slate Blue-Grey */
-  --secondary-foreground: hsl(40, 20%, 96%);
+  --primary: hsl(325, 100%, 50%); /* Vibrant Pink */
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(266, 85%, 58%); /* Vibrant Purple */
+  --secondary-foreground: hsl(0, 0%, 100%);
   --muted: hsl(40, 20%, 90%);
   --muted-foreground: hsl(210, 18%, 35%);
-  --accent: hsl(345, 25%, 58%); /* Rose-Gold */
+  --accent: hsl(217, 100%, 62%); /* Vibrant Blue */
   --accent-foreground: hsl(0, 0%, 100%);
   --destructive: hsl(0, 84%, 60%);
   --destructive-foreground: hsl(0, 0%, 98%);
   --border: hsl(40, 20%, 88%);
   --input: hsl(40, 20%, 92%);
-  --ring: hsl(345, 25%, 58%);
-  --chart-1: hsl(345, 25%, 58%);
-  --chart-2: hsl(210, 18%, 35%);
-  --chart-3: hsl(40, 20%, 70%);
-  --chart-4: hsl(210, 69%, 11%);
+  --ring: hsl(217, 100%, 62%);
+  --chart-1: hsl(325, 100%, 50%);
+  --chart-2: hsl(266, 85%, 58%);
+  --chart-3: hsl(217, 100%, 62%);
+  --chart-4: hsl(172, 100%, 40%);
   --chart-5: hsl(0, 0%, 12%);
   --sidebar: hsl(40, 20%, 96%);
   --sidebar-foreground: hsl(0, 0%, 12%);
-  --sidebar-primary: hsl(345, 25%, 58%);
+  --sidebar-primary: hsl(325, 100%, 50%);
   --sidebar-primary-foreground: hsl(0, 0%, 100%);
   --sidebar-accent: hsl(40, 20%, 90%);
   --sidebar-accent-foreground: hsl(0, 0%, 12%);
   --sidebar-border: hsl(40, 20%, 88%);
-  --sidebar-ring: hsl(345, 25%, 58%);
+  --sidebar-ring: hsl(217, 100%, 62%);
   --font-sans: 'Montserrat', sans-serif;
   --font-serif: 'Playfair Display', serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -90,21 +95,65 @@
 
 @layer components {
   .hero-gradient {
-    background: linear-gradient(135deg, var(--background) 0%, hsl(40, 15%, 92%) 100%);
+    background: var(--gradient-bg);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 0, 110, 0.1) 0%, rgba(131, 56, 236, 0.05) 30%, rgba(58, 134, 255, 0.05) 60%, rgba(0, 200, 150, 0.1) 100%);
+    animation: gradientShift 8s ease-in-out infinite;
+  }
+  
+  @keyframes gradientShift {
+    0%, 100% { opacity: 1; transform: translateX(0%); }
+    50% { opacity: 0.8; transform: translateX(2%); }
   }
   
   .text-gradient {
-    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    background: var(--primary-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    background-size: 200% 200%;
+    animation: gradientText 4s ease-in-out infinite;
+  }
+  
+  @keyframes gradientText {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
   
   .section-divider {
-    background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
-    height: 1px;
-    width: 60px;
+    background: var(--primary-gradient);
+    height: 2px;
+    width: 80px;
     margin: 0 auto;
+    border-radius: 2px;
+  }
+  
+  .gradient-border {
+    position: relative;
+    background: var(--gradient-bg);
+    border-radius: 12px;
+    padding: 2px;
+  }
+  
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: var(--gradient-bg);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
   }
   
   .animate-fade-in {
