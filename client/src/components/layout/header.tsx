@@ -27,10 +27,12 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center hover:opacity-80 transition-opacity duration-200">
-              {/* Logo placeholder - need SVG or PNG file */}
-              <div className="h-8 flex items-center">
-                <span className="font-playfair text-lg font-bold text-white tracking-tight">TCC</span>
-              </div>
+              <img 
+                src="@assets/tcc-logo-nav-navy.svg" 
+                alt="The Collective by Thompson & Co" 
+                className="h-8 w-auto object-contain"
+                style={{ height: '32px', width: 'auto', objectFit: 'contain' }}
+              />
             </Link>
           </div>
           
