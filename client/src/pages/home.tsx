@@ -214,11 +214,10 @@ export default function Home() {
           <svg className="hero__wave" viewBox="0 0 2000 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
             <defs>
               <linearGradient id="tccGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
-                <stop offset="0%"   stopColor="#0D5A62"/>
-                <stop offset="25%"  stopColor="#1B4F72"/>
-                <stop offset="50%"  stopColor="#F1C40F"/>
-                <stop offset="75%"  stopColor="#E67E22"/>
-                <stop offset="100%" stopColor="#E91E63"/>
+                <stop offset="0%"   stopColor="#006B75"/>
+                <stop offset="30%"  stopColor="#FFD700"/>
+                <stop offset="60%"  stopColor="#FF8C00"/>
+                <stop offset="100%" stopColor="#FF1493"/>
               </linearGradient>
             </defs>
             <path d="M0,120 C500,40 1500,200 2000,100 L2000,220 L0,220 Z" fill="url(#tccGrad)"/>
