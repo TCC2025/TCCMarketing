@@ -6,21 +6,22 @@
 
 :root {
   /* Brand Colors - The Collective by Thompson & Co */
-  --primary-gradient: linear-gradient(135deg, #FF006E 0%, #8338EC 50%, #3A86FF 100%);
-  --vibrant-pink: hsl(325, 100%, 50%); /* #FF006E */
-  --vibrant-purple: hsl(266, 85%, 58%); /* #8338EC */
-  --vibrant-blue: hsl(217, 100%, 62%); /* #3A86FF */
-  --vibrant-teal: hsl(172, 100%, 40%); /* #00C896 */
+  --brushstroke-gradient: linear-gradient(135deg, #E7156A 0%, #F07B1E 25%, #D89B2D 50%, #10676F 75%, #0F2435 100%);
+  --magenta: #E7156A;
+  --warm-orange: #F07B1E;
+  --mustard-gold: #D89B2D;
+  --teal: #10676F;
+  --deep-navy: #0F2435;
+  --ivory-bg: #F2E6D7;
   --charcoal: hsl(0, 0%, 12%); /* #1F1F1F */
   --slate-blue-grey: hsl(210, 18%, 35%); /* #4A5A6A */
-  --deep-navy: hsl(210, 69%, 11%); /* #0B1C2C */
   --professional-navy: hsl(215, 25%, 27%); /* #334155 */
   --warm-gold: hsl(32, 95%, 44%); /* #d97706 */
   --soft-ivory: hsl(40, 20%, 96%); /* #F6F1EB */
-  --gradient-bg: linear-gradient(135deg, #FF006E 0%, #8338EC 30%, #3A86FF 60%, #00C896 100%);
+  --gradient-bg: var(--brushstroke-gradient);
   
   /* Tailwind Custom Properties */
-  --background: hsl(40, 20%, 96%); /* Soft Ivory */
+  --background: #F2E6D7; /* Ivory Background */
   --foreground: hsl(0, 0%, 12%); /* Charcoal */
   --card: hsl(0, 0%, 100%);
   --card-foreground: hsl(0, 0%, 12%);
@@ -97,20 +98,45 @@
 
 @layer components {
   .hero-gradient {
-    background: var(--gradient-bg);
+    background: var(--ivory-bg);
     position: relative;
     overflow: hidden;
   }
   
-  .hero-gradient::before {
+  .hero-brushstroke {
+    position: absolute;
+    top: -10%;
+    right: -20%;
+    width: 120%;
+    height: 120%;
+    background: var(--brushstroke-gradient);
+    transform: rotate(-15deg) skewY(-5deg);
+    border-radius: 50% 30% 70% 40%;
+    filter: blur(0.5px);
+    opacity: 0.9;
+    z-index: 1;
+  }
+  
+  .hero-brushstroke::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 0, 110, 0.1) 0%, rgba(131, 56, 236, 0.05) 30%, rgba(58, 134, 255, 0.05) 60%, rgba(0, 200, 150, 0.1) 100%);
-    animation: gradientShift 8s ease-in-out infinite;
+    inset: -2px;
+    background: var(--brushstroke-gradient);
+    border-radius: inherit;
+    filter: blur(1px);
+    opacity: 0.6;
+    z-index: -1;
+  }
+  
+  .hero-brushstroke::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: var(--brushstroke-gradient);
+    border-radius: inherit;
+    filter: blur(0.2px);
+    opacity: 0.8;
+    z-index: -1;
   }
   
   @keyframes gradientShift {
