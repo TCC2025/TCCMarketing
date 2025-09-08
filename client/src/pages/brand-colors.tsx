@@ -45,18 +45,22 @@ export default function BrandColors() {
             className="mb-16 text-primary"
           />
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12 mb-8">
             {coreColors.map((color, index) => (
               <div key={index} className="text-center group">
                 <div 
-                  className="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto mb-4 shadow-lg hover:scale-105 transition-transform duration-300 border-2 border-white/20"
-                  style={{ backgroundColor: color.hex }}
+                  className="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto mb-4 color-circle-hover elegant-hover"
+                  style={{ 
+                    backgroundColor: color.hex,
+                    boxShadow: `0 8px 32px ${color.hex}20, 0 4px 16px ${color.hex}15`,
+                    border: color.hex === "#F2E6D7" ? "2px solid #0F2435" : "2px solid rgba(255,255,255,0.2)"
+                  }}
                   data-testid={`color-circle-${color.name.toLowerCase().replace(' ', '-')}`}
                 ></div>
-                <h3 className="font-medium text-primary mb-2 text-sm md:text-base">
+                <h3 className="font-medium text-primary mb-2 text-sm md:text-base group-hover:text-shimmer transition-all duration-300">
                   {color.name}
                 </h3>
-                <p className="font-mono text-slate-gray text-xs md:text-sm tracking-wider">
+                <p className="font-mono text-slate-gray text-xs md:text-sm tracking-wider group-hover:text-primary transition-colors duration-300">
                   {color.hex}
                 </p>
               </div>
@@ -73,21 +77,24 @@ export default function BrandColors() {
             className="mb-16 text-primary"
           />
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 lg:gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 lg:gap-12 mb-8">
             {secondaryColors.map((color, index) => (
               <div key={index} className="text-center group">
                 <div 
-                  className="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto mb-4 shadow-lg hover:scale-105 transition-transform duration-300 border-2 border-slate-gray/10"
+                  className="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto mb-4 color-circle-hover elegant-hover"
                   style={{ 
                     backgroundColor: color.hex,
-                    border: color.hex === "#FFFFFF" ? "2px solid #5C6770" : undefined
+                    boxShadow: color.hex === "#000000" 
+                      ? "0 8px 32px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.2)" 
+                      : `0 8px 32px ${color.hex}20, 0 4px 16px ${color.hex}15`,
+                    border: color.hex === "#FFFFFF" || color.hex === "#EBD8A1" ? "2px solid #5C6770" : "2px solid rgba(255,255,255,0.2)"
                   }}
                   data-testid={`color-circle-${color.name.toLowerCase().replace(' ', '-')}`}
                 ></div>
-                <h3 className="font-medium text-primary mb-2 text-sm md:text-base">
+                <h3 className="font-medium text-primary mb-2 text-sm md:text-base group-hover:text-shimmer transition-all duration-300">
                   {color.name}
                 </h3>
-                <p className="font-mono text-slate-gray text-xs md:text-sm tracking-wider">
+                <p className="font-mono text-slate-gray text-xs md:text-sm tracking-wider group-hover:text-primary transition-colors duration-300">
                   {color.hex}
                 </p>
               </div>
