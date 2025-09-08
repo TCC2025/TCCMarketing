@@ -288,6 +288,30 @@ export default function ContentAdmin() {
                     data-testid="input-case-study-tags"
                   />
                 </div>
+
+                <Card className="p-4 bg-muted/50">
+                  <div className="flex items-center gap-2 mb-3">
+                    <ImageIcon className="h-4 w-4" />
+                    <label className="text-sm font-medium text-primary">
+                      Case Study Images
+                    </label>
+                  </div>
+                  <FileUpload
+                    accept="image/*"
+                    multiple={true}
+                    maxFiles={5}
+                    maxSize={5}
+                    onUpload={(files) => {
+                      setCaseStudyMedia(prev => [...prev, ...files]);
+                    }}
+                    onRemove={(fileId) => {
+                      setCaseStudyMedia(prev => prev.filter(f => f.id !== fileId));
+                    }}
+                    initialFiles={caseStudyMedia}
+                    showPreview={true}
+                    allowedTypes={['image/jpeg', 'image/png', 'image/webp']}
+                  />
+                </Card>
               </div>
 
               <Button 
