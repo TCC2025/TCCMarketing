@@ -116,9 +116,9 @@ export default function Home() {
         <div className="hero-brushstroke"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center animate-fade-in">
-            <h1 className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-lg mb-6 leading-tight relative z-10">
-              Modern Solutions<br />
-              for a Dynamic World
+            <h1 className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold drop-shadow-lg mb-6 leading-tight relative z-10 text-[#0F2435]">
+              Cut Through the Noise.<br />
+              Grow With Clarity.
             </h1>
             <p className="text-lg md:text-xl text-white/90 drop-shadow max-w-3xl mx-auto mb-12 leading-relaxed relative z-10">
               Welcome to Thompson & Co's consultancy, The Collective: experts in recruitment marketing, employer branding, and talent strategy.
@@ -137,7 +137,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Services Grid */}
       <section id="services" className="py-20 lg:py-32 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -170,7 +169,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Align360 Framework */}
       <section className="py-20 lg:py-32 bg-secondary text-secondary-foreground">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -229,7 +227,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Proof Section */}
       <section className="py-20 lg:py-32 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -285,7 +282,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Featured Case Study */}
       <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -334,7 +330,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Lead Magnet */}
       <section className="py-20 lg:py-32 bg-accent text-accent-foreground">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -372,7 +367,6 @@ export default function Home() {
           </form>
         </div>
       </section>
-
       {/* Newsletter Signup */}
       <section className="py-16 bg-card border-t border-border">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
