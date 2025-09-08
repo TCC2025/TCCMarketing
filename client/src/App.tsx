@@ -19,6 +19,7 @@ import AdminDashboard from "@/pages/admin/dashboard";
 import NewBlogPost from "@/pages/admin/blog/new";
 import ServicesAdmin from "@/pages/admin/services";
 import LeadsAdmin from "@/pages/admin/leads";
+import ContentAdmin from "@/pages/admin/content";
 
 function Router() {
   return (
@@ -29,6 +30,7 @@ function Router() {
       <Route path="/admin/blog/new" component={NewBlogPost} />
       <Route path="/admin/services" component={ServicesAdmin} />
       <Route path="/admin/leads" component={LeadsAdmin} />
+      <Route path="/admin/content" component={ContentAdmin} />
       
       {/* Public Routes - With header/footer */}
       <Route>
