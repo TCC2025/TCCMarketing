@@ -209,7 +209,7 @@ export default function Home() {
           <p className="hero__promise"><em>Growth that's sustainable, measurable, and predictable. It's science.</em></p>
         </div>
 
-        <svg className="hero__swoop"
+        <svg className="hero__art"
              viewBox="0 0 2000 600"
              xmlns="http://www.w3.org/2000/svg"
              preserveAspectRatio="xMidYMid slice"

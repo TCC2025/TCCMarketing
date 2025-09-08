@@ -14,9 +14,8 @@
     #E7156A 100%     /* Magenta       */
   );
 
-  /* Small positioning knobs so we can tweak without hunting */
-  --hero-shift: 28px;      /* move hero content DOWN ~1/4" */
-  --swoop-shift: 136px;    /* move gradient swoop DOWN ~1.5" */
+  /* Adjust one variable to nudge the wave up/down responsively */
+  --hero-wave-offset: clamp(72px, 9vw, 120px);
 
   /* Core brand */
   --tcc-bg: var(--ivory);         /* single ivory */
@@ -102,12 +101,12 @@
 @layer components {
 
   /* ===== Hero layout ===== */
+  /* ---- HERO LAYOUT GUARDRAILS ---- */
   .hero {
     position: relative;
-    background: var(--ivory);
+    background: var(--background); /* #F8F6F2 */
     overflow: hidden;
-    padding-top: clamp(64px, 8vw, 96px);
-    padding-bottom: clamp(40px, 6vw, 72px);
+    padding-block: clamp(72px, 8vw, 120px) clamp(56px, 7vw, 100px);
   }
 
   .hero__art {
@@ -178,20 +177,22 @@
   }
 
   /* Wrapper for the wave + overlays */
-  .hero__swoop{
+  .hero__art {
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: calc(-8% + var(--swoop-shift));
-    width: 140%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(-1 * var(--hero-wave-offset)); /* keeps wave below content */
+    width: 160%;
+    max-width: 2000px;
     height: auto;
-    pointer-events: none;
-    z-index: 0;
+    z-index: 0;              /* BEHIND content */
+    pointer-events: none;    /* never catch clicks */
+    filter: saturate(1.08) contrast(1.06);
   }
 
-  /* Content wrapper inside hero */
-  .hero .container {
-    transform: translateY(var(--hero-shift)); /* move content down ~1/4" */
+  .hero .container {         /* content stays above the wave */
+    position: relative;
+    z-index: 1;
   }
 
   /* The wave SVG itself */
