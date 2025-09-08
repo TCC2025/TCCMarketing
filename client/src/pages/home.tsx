@@ -144,73 +144,53 @@ export default function Home() {
         id="organization-schema"
       />
 
-      {/* Hero Section - Clean Editorial Industrial */}
-      <section className="hero-editorial py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center animate-fade-in">
-            <div className="inline-block mb-6 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-[#0F2435]/10">
-              <span className="text-sm font-medium tracking-wider uppercase text-[#0F2435]/70">
-                Modern Solutions for a Dynamic World
-              </span>
-            </div>
-            <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-[0.95] text-[#0F2435] tracking-tight">
-              Cut Through the Noise.
-              <br />
-              <span className="text-[#10676F]">Grow With Clarity.</span>
-            </h1>
-            <p className="text-lg md:text-xl text-[#0F2435]/80 max-w-4xl mx-auto mb-12 leading-relaxed font-light">
-              From customer campaigns to hiring funnels, we align your brand and
-              marketing to do more with less—backed by AI-driven strategy and an
-              enterprise-grade lens. We help SMBs, startups, and mid-market
-              teams remove friction, cut waste, and accelerate measurable
-              outcomes.
-            </p>
+      {/* Hero Section - SVG Gradient Brush */}
+      <section className="hero">
+        {/* Gradient "brush" (inline SVG, no image file) */}
+        <svg className="hero__art" viewBox="0 0 2000 600" aria-hidden="true">
+          <defs>
+            <linearGradient id="tccGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#10676F"/>
+              <stop offset="22%" stopColor="#0F2435"/>
+              <stop offset="48%" stopColor="#D89B2D"/>
+              <stop offset="74%" stopColor="#F07B1E"/>
+              <stop offset="100%" stopColor="#E7156A"/>
+            </linearGradient>
+          </defs>
+          {/* Editable path: tweak the curve to taste */}
+          <path d="M-50,260 C350,80 780,520 1260,260 C1550,110 1780,420 2100,300 L2100,640 -50,640Z"
+                fill="url(#tccGrad)" opacity="0.25"></path>
+        </svg>
 
-            {/* Clean CTAs */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-              <Button
-                size="lg"
-                className="bg-[#0F2435] text-white px-10 py-4 text-base font-medium hover:bg-[#0F2435]/90 transition-all duration-300 border-0 shadow-lg hover:shadow-xl"
-                data-testid="button-strategy-consult"
-              >
-                Start Your Strategy Consult
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-transparent text-[#0F2435] px-10 py-4 text-base font-medium border-[#0F2435]/20 hover:bg-[#0F2435] hover:text-white transition-all duration-300"
-                data-testid="button-blueprint"
-              >
-                Get the Blueprint
-              </Button>
-            </div>
+        <div className="container">
+          <p className="eyebrow">Modern Solutions for a Dynamic World</p>
 
-            {/* Trust Stats - Clean Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              <div className="text-center p-6 bg-white/40 backdrop-blur-sm rounded-lg border border-[#0F2435]/10">
-                <div className="font-bold text-2xl text-[#0F2435] mb-1">
-                  28%
-                </div>
-                <div className="text-sm text-[#0F2435]/70 font-medium">
-                  Lower Cost-Per-Apply
-                </div>
-              </div>
-              <div className="text-center p-6 bg-white/40 backdrop-blur-sm rounded-lg border border-[#0F2435]/10">
-                <div className="font-bold text-2xl text-[#0F2435] mb-1">
-                  2.1×
-                </div>
-                <div className="text-sm text-[#0F2435]/70 font-medium">
-                  Qualified Applications
-                </div>
-              </div>
-              <div className="text-center p-6 bg-white/40 backdrop-blur-sm rounded-lg border border-[#0F2435]/10">
-                <div className="font-bold text-2xl text-[#0F2435] mb-1">
-                  7→2
-                </div>
-                <div className="text-sm text-[#0F2435]/70 font-medium">
-                  Days to Interview
-                </div>
-              </div>
+          <h1>
+            <span>Cut Through the Noise.</span><br />
+            <span className="teal">Grow With Clarity.</span>
+          </h1>
+
+          <p className="subhead">
+            From customer campaigns to hiring funnels, we align your brand and marketing to do more with less—backed by AI-driven strategy and an enterprise-grade lens. We help SMBs, startups, and mid-market teams remove friction, cut waste, and accelerate measurable outcomes.
+          </p>
+
+          <div className="cta-row">
+            <a className="btn btn--primary" href="#contact" data-testid="button-strategy-consult">Start Your Strategy Consult</a>
+            <a className="btn btn--ghost" href="#blueprint" data-testid="button-blueprint">Get the Blueprint</a>
+          </div>
+
+          <div className="proof-grid">
+            <div className="proof-card">
+              <div className="proof-stat">28%</div>
+              <div className="proof-label">Lower Cost-Per-Apply</div>
+            </div>
+            <div className="proof-card">
+              <div className="proof-stat">2.1×</div>
+              <div className="proof-label">Qualified Applications</div>
+            </div>
+            <div className="proof-card">
+              <div className="proof-stat">7→2</div>
+              <div className="proof-label">Days to Interview</div>
             </div>
           </div>
         </div>
