@@ -6,8 +6,19 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Calendar, TrendingUp } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import type { CaseStudy } from "@shared/schema";
+import { seoData } from "@/lib/seo";
+import { useSEO } from "@/hooks/useSEO";
+import { StructuredData } from "@/components/seo/StructuredData";
+import { createOrganizationStructuredData } from "@/lib/seo";
 
 export default function CaseStudies() {
+  // SEO Optimization
+  useSEO({
+    ...seoData.caseStudies,
+    canonicalUrl: "/case-studies",
+    type: "website"
+  });
+
   const [selectedCategory, setSelectedCategory] = useState("All");
   const { data: caseStudiesData = [], isLoading } = useQuery<CaseStudy[]>({ queryKey: ['/api/case-studies'] });
   
@@ -29,6 +40,9 @@ export default function CaseStudies() {
 
   return (
     <>
+      {/* SEO Structured Data */}
+      <StructuredData data={createOrganizationStructuredData()} id="organization-schema" />
+      
       {/* Hero Section */}
       <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

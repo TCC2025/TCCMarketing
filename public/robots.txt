@@ -1,12 +1,37 @@
 User-agent: *
 Allow: /
 
+# Allow access to main pages
+Allow: /services
+Allow: /case-studies
+Allow: /blog
+Allow: /insights
+Allow: /about
+Allow: /contact
+Allow: /brand-colors
+
+# Block admin pages from search engines
+Disallow: /admin/
+Disallow: /admin/*
+
+# Block API endpoints from search engines
+Disallow: /api/
+Disallow: /api/*
+
+# Allow crawling of assets
+Allow: /src/
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.webp
+
 # Sitemap location
-Sitemap: https://thompsonco.com/sitemap.xml
+Sitemap: https://thecollectivebythompson.com/sitemap.xml
 
-# Crawl-delay for well-behaved crawlers
+# Crawl delay for well-behaved bots
 Crawl-delay: 1
-
-# Disallow specific paths if needed
-# Disallow: /admin/
-# Disallow: /private/

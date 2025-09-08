@@ -4,8 +4,19 @@ import { Button } from "@/components/ui/button";
 import { Bot, Users, TrendingUp, Star, CheckCircle, ArrowRight } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import type { Service } from "@shared/schema";
+import { seoData } from "@/lib/seo";
+import { useSEO } from "@/hooks/useSEO";
+import { StructuredData } from "@/components/seo/StructuredData";
+import { createOrganizationStructuredData, createServiceStructuredData } from "@/lib/seo";
 
 export default function Services() {
+  // SEO Optimization
+  useSEO({
+    ...seoData.services,
+    canonicalUrl: "/services",
+    type: "website"
+  });
+
   const { data: servicesData = [], isLoading } = useQuery<Service[]>({ queryKey: ['/api/services'] });
   
   const serviceIcons = {
@@ -27,6 +38,16 @@ export default function Services() {
 
   return (
     <>
+      {/* SEO Structured Data */}
+      <StructuredData data={createOrganizationStructuredData()} id="organization-schema" />
+      {servicesData.map((service, index) => (
+        <StructuredData 
+          key={service.id} 
+          data={createServiceStructuredData(service)} 
+          id={`service-schema-${index}`} 
+        />
+      ))}
+      
       {/* Hero Section */}
       <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

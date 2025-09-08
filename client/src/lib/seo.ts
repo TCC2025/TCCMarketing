@@ -4,6 +4,13 @@ export interface SEOData {
   keywords?: string[];
   ogImage?: string;
   canonicalUrl?: string;
+  type?: 'website' | 'article' | 'profile';
+  publishedTime?: string;
+  modifiedTime?: string;
+  section?: string;
+  tags?: string[];
+  noindex?: boolean;
+  author?: string;
 }
 
 export function updateSEO(seoData: SEOData) {
@@ -26,10 +33,54 @@ export function updateSEO(seoData: SEOData) {
   }
 
   // Update Twitter Card tags
+  updateOrCreateMetaTag('name', 'twitter:card', 'summary_large_image');
   updateOrCreateMetaTag('name', 'twitter:title', seoData.title);
   updateOrCreateMetaTag('name', 'twitter:description', seoData.description);
   if (seoData.ogImage) {
     updateOrCreateMetaTag('name', 'twitter:image', seoData.ogImage);
+  }
+
+  // Update OpenGraph type and additional properties
+  updateOrCreateMetaTag('property', 'og:type', seoData.type || 'website');
+  updateOrCreateMetaTag('property', 'og:site_name', 'The Collective by Thompson & Co');
+  
+  if (seoData.canonicalUrl) {
+    updateOrCreateMetaTag('property', 'og:url', `https://thecollectivebythompson.com${seoData.canonicalUrl}`);
+  }
+
+  // Article-specific meta tags
+  if (seoData.type === 'article') {
+    if (seoData.publishedTime) {
+      updateOrCreateMetaTag('property', 'article:published_time', seoData.publishedTime);
+    }
+    if (seoData.modifiedTime) {
+      updateOrCreateMetaTag('property', 'article:modified_time', seoData.modifiedTime);
+    }
+    if (seoData.section) {
+      updateOrCreateMetaTag('property', 'article:section', seoData.section);
+    }
+    if (seoData.tags) {
+      // Remove existing article tags first
+      const existingTags = document.querySelectorAll('meta[property="article:tag"]');
+      existingTags.forEach(tag => tag.remove());
+      
+      // Add new tags
+      seoData.tags.forEach(tag => {
+        updateOrCreateMetaTag('property', 'article:tag', tag);
+      });
+    }
+  }
+
+  // Author tag
+  if (seoData.author) {
+    updateOrCreateMetaTag('name', 'author', seoData.author);
+  }
+
+  // Robots meta tag
+  if (seoData.noindex) {
+    updateOrCreateMetaTag('name', 'robots', 'noindex, nofollow');
+  } else {
+    updateOrCreateMetaTag('name', 'robots', 'index, follow');
   }
 
   // Update canonical URL
@@ -62,6 +113,77 @@ function updateOrCreateLinkTag(rel: string, href: string) {
     element.href = href;
     document.head.appendChild(element);
   }
+}
+
+// Structured Data Generators
+export function createOrganizationStructuredData() {
+  return {
+    "@type": "Organization",
+    "name": "The Collective by Thompson & Co",
+    "alternateName": "The Collective",
+    "description": "Modern solutions for employer branding, recruitment marketing, and AI-driven marketing automation",
+    "url": "https://thecollectivebythompson.com",
+    "logo": "https://thecollectivebythompson.com/logo.png",
+    "sameAs": [
+      "https://www.linkedin.com/company/the-collective-by-thompson-co"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": "English"
+    },
+    "areaServed": "Worldwide",
+    "foundingDate": "2020",
+    "serviceType": [
+      "Employer Branding",
+      "Recruitment Marketing", 
+      "AI Marketing Automation",
+      "Executive Branding",
+      "Talent Strategy Consulting"
+    ]
+  };
+}
+
+export function createBlogStructuredData(post: any) {
+  return {
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.excerpt || post.description,
+    "author": {
+      "@type": "Organization",
+      "name": "The Collective by Thompson & Co"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Collective by Thompson & Co",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://thecollectivebythompson.com/logo.png"
+      }
+    },
+    "datePublished": post.publishedAt || post.createdAt,
+    "dateModified": post.updatedAt || post.publishedAt || post.createdAt,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://thecollectivebythompson.com/blog/${post.slug}`
+    },
+    "articleSection": post.category,
+    "keywords": post.tags?.join(', ')
+  };
+}
+
+export function createServiceStructuredData(service: any) {
+  return {
+    "@type": "Service",
+    "name": service.title,
+    "description": service.description || service.excerpt,
+    "provider": {
+      "@type": "Organization",
+      "name": "The Collective by Thompson & Co"
+    },
+    "serviceType": service.title,
+    "areaServed": "Worldwide"
+  };
 }
 
 // Page-specific SEO data

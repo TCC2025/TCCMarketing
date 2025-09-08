@@ -10,6 +10,10 @@ import { Bot, Users, TrendingUp, Star, CheckCircle, User } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useQuery } from "@tanstack/react-query";
 import type { Service, Stat as StatType, Testimonial as TestimonialType } from "@shared/schema";
+import { seoData } from "@/lib/seo";
+import { useSEO } from "@/hooks/useSEO";
+import { StructuredData } from "@/components/seo/StructuredData";
+import { createOrganizationStructuredData } from "@/lib/seo";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -17,6 +21,13 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isNewsletterSubmitting, setIsNewsletterSubmitting] = useState(false);
   const { toast } = useToast();
+  
+  // SEO Optimization
+  useSEO({
+    ...seoData.home,
+    canonicalUrl: "/",
+    type: "website"
+  });
   
   // Fetch data from APIs
   const { data: servicesData = [] } = useQuery<Service[]>({ queryKey: ['/api/services'] });
@@ -108,6 +119,9 @@ export default function Home() {
 
   return (
     <>
+      {/* SEO Structured Data */}
+      <StructuredData data={createOrganizationStructuredData()} id="organization-schema" />
+      
       {/* Hero Section */}
       <section className="hero-gradient py-20 lg:py-32">
         <div className="hero-brushstroke"></div>

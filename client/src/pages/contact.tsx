@@ -7,8 +7,19 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Mail, Phone, MapPin, Calendar } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { seoData } from "@/lib/seo";
+import { useSEO } from "@/hooks/useSEO";
+import { StructuredData } from "@/components/seo/StructuredData";
+import { createOrganizationStructuredData } from "@/lib/seo";
 
 export default function Contact() {
+  // SEO Optimization
+  useSEO({
+    ...seoData.contact,
+    canonicalUrl: "/contact",
+    type: "website"
+  });
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -78,6 +89,9 @@ export default function Contact() {
 
   return (
     <>
+      {/* SEO Structured Data */}
+      <StructuredData data={createOrganizationStructuredData()} id="organization-schema" />
+      
       {/* Hero Section */}
       <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

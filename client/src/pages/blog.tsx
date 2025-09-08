@@ -7,10 +7,21 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Calendar, Clock, Search, ArrowRight, TrendingUp } from "lucide-react";
 import insightsData from "@/data/insights.json";
+import { seoData } from "@/lib/seo";
+import { useSEO } from "@/hooks/useSEO";
+import { StructuredData } from "@/components/seo/StructuredData";
+import { createOrganizationStructuredData, createBlogStructuredData } from "@/lib/seo";
 
 export default function Blog() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  
+  // SEO Optimization
+  useSEO({
+    ...seoData.blog,
+    canonicalUrl: "/blog",
+    type: "website"
+  });
   
   const categories = ["All", "Employer Branding", "AI & Automation", "Talent Marketing", "Leadership"];
   
@@ -26,6 +37,12 @@ export default function Blog() {
 
   return (
     <>
+      {/* SEO Structured Data */}
+      <StructuredData data={createOrganizationStructuredData()} id="organization-schema" />
+      {featuredPost && (
+        <StructuredData data={createBlogStructuredData(featuredPost)} id="featured-article-schema" />
+      )}
+      
       {/* Hero Section */}
       <section className="hero-gradient py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
