@@ -16,7 +16,7 @@
 
   /* Small positioning knobs so we can tweak without hunting */
   --hero-shift: 28px;      /* move hero content DOWN ~1/4" */
-  --swoop-shift: 28px;     /* move gradient swoop DOWN ~1/4" */
+  --swoop-shift: 136px;    /* move gradient swoop DOWN ~1.5" */
 
   /* Core brand */
   --tcc-bg: var(--ivory);         /* single ivory */
