@@ -1,0 +1,18 @@
+Build a fast, responsive marketing website for Thompson & Co. Collective (TCC) — a boutique consultancy in employer branding, recruitment marketing, AI-driven marketing automation, and fractional CMO services. Voice: bold, modern, sophisticated, approachable, thought-leadership. Tagline: “Where Strategy Meets Extraordinary Outcomes.”
+Brand: Playfair Display (headings), Montserrat (UI/body). Colors: Charcoal #1F1F1F, Slate Blue-Grey #4A5A6A, Soft Ivory #F6F1EB, Rose-Gold accent #B76E79, Deep Navy #0B1C2C. No emojis. Minimal-luxe aesthetic with generous whitespace, editorial typography, and subtle motion.
+Pages/sections:
+	•	Home (hero with headline + subhead + primary CTA “Book a Strategy Call”, secondary CTA “Download the Talent Marketing Blueprint 2025”), services grid (4 pillars), Align360™ framework explainer, proof (logos/stats/testimonials), featured case study, lead magnet, newsletter, footer with social + legal.
+	•	Services (AI Marketing & Automation, Employer Branding & Talent Marketing, Fractional CMO, Executive Branding).
+	•	Case Studies (cards → detail template).
+	•	Insights (blog index + post template).
+	•	About (mission, values, bio headshot slot).
+	•	Contact (form with Formspree or Replit DB + success state) and Calendly embed slot.
+Functional requirements:
+	•	Static site (HTML/CSS/JS or Vite) optimized for Core Web Vitals.
+	•	SEO: page titles, meta, OpenGraph/Twitter cards, sitemap.xml, robots.txt (index allowed), schema.org (Organization + Service + Article).
+	•	Accessibility: WCAG AA color contrast, semantic landmarks, skip-link.
+	•	Reusable components: Button, Card, Testimonial, Stat, SectionHeader.
+	•	CMS-lite: JSON files in /data for services, case studies, and testimonials; pages consume these.
+	•	Analytics hooks: GA4 and Meta Pixel placeholders (env vars).
+	•	Forms: POST to Formspree (placeholder action) with client-side validation.
+Deliverables: complete code, clean structure (/assets, /data, /styles, /components), and a README with edit instructions.
