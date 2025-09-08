@@ -168,19 +168,7 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="hero" id="home" aria-label="Homepage hero">
-        <svg className="hero__art" viewBox="0 0 2000 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs>
-            <linearGradient id="tccGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
-              <stop offset="0%"   stopColor="#10676F"/>
-              <stop offset="22%"  stopColor="#0F2435"/>
-              <stop offset="48%"  stopColor="#D89B2D"/>
-              <stop offset="74%"  stopColor="#F07B1E"/>
-              <stop offset="100%" stopColor="#E7156A"/>
-            </linearGradient>
-          </defs>
-          <path d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z" fill="url(#tccGrad)"></path>
-        </svg>
+      <section className="hero hero--shimmer" id="home" aria-label="Homepage hero">
 
         <div className="container">
           <p className="hero__eyebrow">Enterprise-Grade Strategy, Human-Centered Growth</p>
@@ -219,6 +207,26 @@ export default function Home() {
             No pressure—30 minutes to get clarity. Conversation, not sales.
           </p>
           <p className="hero__promise"><em>Growth that's sustainable, measurable, and predictable. It's science.</em></p>
+        </div>
+
+        {/* Bottom anchor wave (single, shiny, no external assets) */}
+        <div className="hero__waveWrap" aria-hidden="true">
+          <svg className="hero__wave" viewBox="0 0 2000 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="tccGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
+                <stop offset="0%"   stopColor="#10676F"/>
+                <stop offset="22%"  stopColor="#0F2435"/>
+                <stop offset="48%"  stopColor="#D89B2D"/>
+                <stop offset="74%"  stopColor="#F07B1E"/>
+                <stop offset="100%" stopColor="#E7156A"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,140 C600,60 1400,220 2000,120 L2000,220 L0,220 Z" fill="url(#tccGrad)"/>
+          </svg>
+
+          {/* CSS-only overlays (no files) */}
+          <span className="hero__waveGloss"></span>
+          <span className="hero__waveGrain"></span>
         </div>
       </section>
       {/* Services Section */}

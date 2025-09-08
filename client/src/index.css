@@ -159,6 +159,70 @@
     opacity: 0.8;
   }
 
+  /* Wrapper for the wave + overlays */
+  .hero__waveWrap{
+    position: relative;
+    display: block;
+    width: 110%;
+    height: 220px;
+    left: -5%;
+    margin-top: clamp(32px, 6vw, 56px);
+  }
+
+  /* The wave SVG itself */
+  .hero__wave{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: saturate(108%) contrast(105%); /* subtle punch */
+  }
+
+  /* Shine overlay (gloss) — pure CSS */
+  .hero__waveGloss{
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      120deg,
+      rgba(255,255,255,0.22) 0%,
+      rgba(255,255,255,0.00) 38%,
+      rgba(255,255,255,0.14) 70%,
+      rgba(255,255,255,0.00) 100%
+    );
+    mix-blend-mode: screen; /* key for "shine" look */
+  }
+
+  /* Grain overlay — CSS-only micro-dither to kill banding (no images) */
+  .hero__waveGrain{
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+      radial-gradient(rgba(0,0,0,.05) 1px, transparent 1px);
+    background-size: 3px 3px, 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    opacity: .08;
+    mix-blend-mode: overlay;
+  }
+
+  /* OPTIONAL: animated shimmer — enable by adding .hero--shimmer to the <section class="hero"> */
+  .hero.hero--shimmer .hero__waveGloss{
+    animation: tcc_shine 6s linear infinite;
+    will-change: transform;
+  }
+  @keyframes tcc_shine{
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .hero.hero--shimmer .hero__waveGloss{ animation: none; }
+  }
+
   .hero .container {
     position: relative;
     z-index: 1;
