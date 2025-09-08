@@ -221,7 +221,7 @@ export default function Home() {
                 <stop offset="100%" stopColor="#E7156A"/>
               </linearGradient>
             </defs>
-            <path d="M0,140 C600,60 1400,220 2000,120 L2000,220 L0,220 Z" fill="url(#tccGrad)"/>
+            <path d="M0,120 C500,40 1500,200 2000,100 L2000,220 L0,220 Z" fill="url(#tccGrad)"/>
           </svg>
 
           {/* CSS-only overlays (no files) */}

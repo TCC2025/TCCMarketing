@@ -3,7 +3,14 @@
 
 :root{
   /* Gradient (one place) */
-  --primary-gradient: linear-gradient(90deg,#10676F 0%,#0F2435 22%,#D89B2D 48%,#F07B1E 74%,#E7156A 100%);
+  --primary-gradient: linear-gradient( 
+    90deg,
+    #0F2435 0%, 
+    #10676F 20%, 
+    #D89B2D 40%, 
+    #F07B1E 55%, 
+    #E7156A 100%
+  );
 
   /* Core brand */
   --tcc-bg:#F8F6F2;         /* single ivory */
@@ -221,6 +228,19 @@
   /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce){
     .hero.hero--shimmer .hero__waveGloss{ animation: none; }
+  }
+
+  /* Hero shine overlay for polish */
+  .hero::after { 
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(255,255,255,0.15) 0%,
+      rgba(255,255,255,0) 50%
+    );
+    pointer-events: none;
   }
 
   .hero .container {
