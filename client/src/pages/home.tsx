@@ -159,7 +159,7 @@ export default function Home() {
           </defs>
           {/* Editable path: tweak the curve to taste */}
           <path d="M-50,260 C350,80 780,520 1260,260 C1550,110 1780,420 2100,300 L2100,640 -50,640Z"
-                fill="url(#tccGrad)" opacity="0.25"></path>
+                fill="url(#tccGrad)" opacity="0.65"></path>
         </svg>
 
         <div className="container">
@@ -181,14 +181,17 @@ export default function Home() {
 
           <div className="proof-grid">
             <div className="proof-card">
+              <div className="proof-icon">💰</div>
               <div className="proof-stat">28%</div>
               <div className="proof-label">Lower Cost-Per-Apply</div>
             </div>
             <div className="proof-card">
+              <div className="proof-icon">🎯</div>
               <div className="proof-stat">2.1×</div>
               <div className="proof-label">Qualified Applications</div>
             </div>
             <div className="proof-card">
+              <div className="proof-icon">⚡</div>
               <div className="proof-stat">7→2</div>
               <div className="proof-label">Days to Interview</div>
             </div>
