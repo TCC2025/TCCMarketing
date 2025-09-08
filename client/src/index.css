@@ -100,7 +100,8 @@
     position: relative;
     background: #F8F6F2;
     overflow: hidden;
-    padding: clamp(72px, 9vw, 128px) 0;
+    padding-top: 60px;
+    padding-bottom: 40px;
   }
 
   .hero__art {
