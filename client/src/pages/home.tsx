@@ -113,13 +113,14 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="hero-gradient py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="hero-brushstroke"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center animate-fade-in">
-            <h1 className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-primary mb-6 leading-tight relative z-10">
+            <h1 className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-lg mb-6 leading-tight relative z-10">
               Modern Solutions<br />
               for a Dynamic World
             </h1>
-            <p className="text-lg md:text-xl text-secondary max-w-3xl mx-auto mb-12 leading-relaxed relative z-10">
+            <p className="text-lg md:text-xl text-white/90 drop-shadow max-w-3xl mx-auto mb-12 leading-relaxed relative z-10">
               Welcome to Thompson & Co's consultancy, The Collective: experts in recruitment marketing, employer branding, and talent strategy.
             </p>
             
@@ -127,7 +128,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center relative z-10">
               <Button 
                 size="lg"
-                className="gradient-button px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300 hover-lift rounded-full"
+                className="bg-white text-primary px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300 hover-lift rounded-full hover:bg-white/90 drop-shadow-lg"
                 data-testid="button-get-in-touch"
               >
                 GET IN TOUCH
