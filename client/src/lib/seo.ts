@@ -189,9 +189,10 @@ export function createServiceStructuredData(service: any) {
 // Page-specific SEO data
 export const seoData = {
   home: {
-    title: "The Collective by Thompson & Co - Modern Solutions for a Dynamic World",
-    description: "The Collective by Thompson & Co provides modern solutions for employer branding, recruitment marketing, and AI-driven automation in today's dynamic business landscape.",
-    keywords: ["employer branding", "recruitment marketing", "AI marketing automation", "talent acquisition", "executive branding", "modern solutions"]
+    title: "The Collective by Thompson & Co. | Cut Through the Noise. Grow With Clarity.",
+    description: "Enterprise-grade strategy and AI-driven clarity that align brand equity, go-to-market strategy, and employer branding—so growth is sustainable, measurable, and predictable.",
+    keywords: ["employer branding", "recruitment marketing", "AI marketing automation", "talent acquisition", "executive branding", "enterprise strategy", "go-to-market", "brand equity"],
+    ogImage: "https://your-domain.com/og/collective-hero.jpg"
   },
   services: {
     title: "Our Services - The Collective by Thompson & Co",
