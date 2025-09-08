@@ -9,7 +9,8 @@ import {
   type Testimonial, type InsertTestimonial,
   type Lead, type InsertLead,
   type Stat, type InsertStat,
-  users, services, caseStudies, blogPosts, testimonials, leads, stats
+  type MediaFile, type InsertMediaFile,
+  users, services, caseStudies, blogPosts, testimonials, leads, stats, mediaFiles
 } from "@shared/schema";
 
 const client = postgres(process.env.DATABASE_URL!);
@@ -55,6 +56,12 @@ export interface IStorage {
   getActiveStats(): Promise<Stat[]>;
   createStat(stat: InsertStat): Promise<Stat>;
   updateStat(id: string, stat: Partial<InsertStat>): Promise<Stat | undefined>;
+
+  // Media File methods
+  getMediaFiles(): Promise<MediaFile[]>;
+  getMediaFile(id: string): Promise<MediaFile | undefined>;
+  createMediaFile(mediaFile: InsertMediaFile): Promise<MediaFile>;
+  deleteMediaFile(id: string): Promise<void>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -198,6 +205,25 @@ export class DatabaseStorage implements IStorage {
       .where(eq(stats.id, id))
       .returning();
     return result[0];
+  }
+
+  // Media File methods
+  async getMediaFiles(): Promise<MediaFile[]> {
+    return db.select().from(mediaFiles);
+  }
+
+  async getMediaFile(id: string): Promise<MediaFile | undefined> {
+    const result = await db.select().from(mediaFiles).where(eq(mediaFiles.id, id));
+    return result[0];
+  }
+
+  async createMediaFile(mediaFile: InsertMediaFile): Promise<MediaFile> {
+    const result = await db.insert(mediaFiles).values(mediaFile).returning();
+    return result[0];
+  }
+
+  async deleteMediaFile(id: string): Promise<void> {
+    await db.delete(mediaFiles).where(eq(mediaFiles.id, id));
   }
 }
 

@@ -1,12 +1,115 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
+import multer from "multer";
+import path from "path";
 import { storage } from "./storage";
 import { 
   insertServiceSchema, insertCaseStudySchema, insertBlogPostSchema, 
-  insertTestimonialSchema, insertLeadSchema, insertStatSchema 
+  insertTestimonialSchema, insertLeadSchema, insertStatSchema,
+  insertMediaFileSchema
 } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Configure multer for file uploads
+  const upload = multer({
+    dest: 'public/uploads/',
+    limits: {
+      fileSize: 10 * 1024 * 1024, // 10MB limit
+    },
+    fileFilter: (req, file, cb) => {
+      const allowedTypes = [
+        'image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif',
+        'video/mp4', 'video/webm', 'video/mov'
+      ];
+      
+      if (allowedTypes.includes(file.mimetype)) {
+        cb(null, true);
+      } else {
+        cb(new Error('Invalid file type. Only images and videos are allowed.'));
+      }
+    }
+  });
+
+  // File Upload API
+  app.post("/api/upload", upload.single('file'), async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ error: "No file uploaded" });
+      }
+
+      const file = req.file;
+      const fileExtension = path.extname(file.originalname);
+      const fileName = `${file.filename}${fileExtension}`;
+      const fileUrl = `/uploads/${fileName}`;
+
+      // Rename file to include extension
+      const oldPath = file.path;
+      const newPath = path.join('public/uploads/', fileName);
+      
+      // Move file to final location with proper extension
+      require('fs').renameSync(oldPath, newPath);
+
+      // Save file info to database
+      const mediaFileData = {
+        fileName: fileName,
+        originalName: file.originalname,
+        mimeType: file.mimetype,
+        size: file.size,
+        url: fileUrl
+      };
+
+      const validatedData = insertMediaFileSchema.parse(mediaFileData);
+      const mediaFile = await storage.createMediaFile(validatedData);
+
+      res.json({
+        id: mediaFile.id,
+        url: fileUrl,
+        fileName: fileName,
+        originalName: file.originalname,
+        size: file.size,
+        type: file.mimetype
+      });
+    } catch (error) {
+      console.error('Upload error:', error);
+      res.status(500).json({ error: "Failed to upload file" });
+    }
+  });
+
+  // Get uploaded files
+  app.get("/api/media", async (req, res) => {
+    try {
+      const mediaFiles = await storage.getMediaFiles();
+      res.json(mediaFiles);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch media files" });
+    }
+  });
+
+  // Delete uploaded file
+  app.delete("/api/media/:id", async (req, res) => {
+    try {
+      const mediaFile = await storage.getMediaFile(req.params.id);
+      if (!mediaFile) {
+        return res.status(404).json({ error: "File not found" });
+      }
+
+      // Delete file from filesystem
+      const filePath = path.join('public', mediaFile.url);
+      try {
+        require('fs').unlinkSync(filePath);
+      } catch (fsError) {
+        console.warn('Could not delete file from filesystem:', fsError);
+      }
+
+      // Delete from database
+      await storage.deleteMediaFile(req.params.id);
+      res.json({ success: true });
+    } catch (error) {
+      console.error('Delete error:', error);
+      res.status(500).json({ error: "Failed to delete file" });
+    }
+  });
+
   // Admin Authentication
   app.post("/api/admin/login", async (req, res) => {
     const { username, password } = req.body;
