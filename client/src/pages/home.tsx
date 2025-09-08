@@ -117,8 +117,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center animate-fade-in">
             <h1 className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold drop-shadow-lg mb-6 leading-tight relative z-10 text-[#0F2435]">
-              Cut Through the Noise.<br />
-              Grow With Clarity.
+              Cut through the Noise.<br />
+              Grow with clarity.
             </h1>
             <p className="text-lg md:text-xl text-white/90 drop-shadow max-w-3xl mx-auto mb-12 leading-relaxed relative z-10">
               Welcome to Thompson & Co's consultancy, The Collective: experts in recruitment marketing, employer branding, and talent strategy.
