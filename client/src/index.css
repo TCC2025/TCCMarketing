@@ -173,12 +173,14 @@
 
   /* Wrapper for the wave + overlays */
   .hero__waveWrap{
-    position: relative;
+    position: absolute;
+    bottom: 15%;
     display: block;
-    width: 110%;
-    height: 200px;
-    left: -5%;
-    margin-top: 30px;
+    width: 150%;
+    height: 220px;
+    left: -25%;
+    z-index: 0;
+    pointer-events: none;
   }
 
   /* The wave SVG itself */
@@ -259,11 +261,12 @@
   @media (max-width: 768px) {
     .hero {
       padding: 28px 0 22px;
-      min-height: 72vh;
+      min-height: 65vh;
     }
-    .hero__art {
-      bottom: -6%;
+    .hero__waveWrap {
+      bottom: 10%;
       width: 165%;
+      left: -32.5%;
     }
   }
 
