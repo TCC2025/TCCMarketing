@@ -100,8 +100,13 @@
     position: relative;
     background: #F8F6F2;
     overflow: hidden;
-    padding-top: 20px;
-    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    text-align: center;
+    padding-bottom: 4rem;
   }
 
   .hero__art {
@@ -280,7 +285,7 @@
     color: var(--tcc-navy);
     font-size: clamp(40px, 6vw, 72px);
     line-height: 1.06;
-    margin: 0 0 12px;
+    margin: 0 0 1rem;
     @apply font-serif;
   }
 
@@ -291,8 +296,8 @@
   /* Subhead: slightly larger & darker for legibility */
   .hero__subhead {
     color: #415262;
-    max-width: 820px;
-    margin: 0 auto 28px;
+    max-width: 700px;
+    margin: 0 auto 2rem;
     font-size: clamp(18px, 1.25vw, 21px);
     line-height: 1.6;
   }
