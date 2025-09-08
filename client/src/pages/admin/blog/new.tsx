@@ -5,8 +5,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card } from "@/components/ui/card";
+import { FileUpload } from "@/components/ui/file-upload";
 import { useToast } from "@/hooks/use-toast";
-import { ArrowLeft, Save, Eye, Globe } from "lucide-react";
+import { ArrowLeft, Save, Eye, Globe, ImageIcon } from "lucide-react";
 
 export default function NewBlogPost() {
   const [, setLocation] = useLocation();
@@ -21,6 +22,7 @@ export default function NewBlogPost() {
     readTime: "",
     isPublished: false
   });
+  const [uploadedMedia, setUploadedMedia] = useState<Array<{id: string, name: string, url: string, type: string, size: number}>>([]);
 
   const categories = [
     "Employer Branding",
@@ -162,6 +164,63 @@ export default function NewBlogPost() {
                     Tip: You can use Markdown formatting for headers, links, lists, and more.
                   </p>
                 </div>
+
+                <Card className="p-4 bg-muted/50">
+                  <div className="flex items-center gap-2 mb-3">
+                    <ImageIcon className="h-4 w-4" />
+                    <label className="text-sm font-medium text-primary">
+                      Media Gallery
+                    </label>
+                  </div>
+                  <FileUpload
+                    accept="image/*,video/*"
+                    multiple={true}
+                    maxFiles={10}
+                    maxSize={10}
+                    onUpload={(files) => {
+                      setUploadedMedia(prev => [...prev, ...files]);
+                    }}
+                    onRemove={(fileId) => {
+                      setUploadedMedia(prev => prev.filter(f => f.id !== fileId));
+                    }}
+                    initialFiles={uploadedMedia}
+                    showPreview={true}
+                  />
+                  {uploadedMedia.length > 0 && (
+                    <div className="mt-4 p-3 bg-background rounded border">
+                      <p className="text-sm font-medium mb-2">Copy markdown to insert:</p>
+                      <div className="space-y-1 text-xs font-mono">
+                        {uploadedMedia.map((file) => (
+                          <div key={file.id} className="flex items-center justify-between">
+                            <span className="text-muted-foreground">
+                              {file.type.startsWith('image/') ? 
+                                `![${file.name}](${file.url})` : 
+                                `[${file.name}](${file.url})`
+                              }
+                            </span>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => {
+                                const markdown = file.type.startsWith('image/') ? 
+                                  `![${file.name}](${file.url})` : 
+                                  `[${file.name}](${file.url})`;
+                                navigator.clipboard.writeText(markdown);
+                                toast({
+                                  title: "Copied!",
+                                  description: "Markdown code copied to clipboard",
+                                });
+                              }}
+                              data-testid={`button-copy-${file.id}`}
+                            >
+                              Copy
+                            </Button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </Card>
               </div>
             </Card>
           </div>
