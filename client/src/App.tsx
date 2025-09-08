@@ -17,6 +17,8 @@ import Footer from "@/components/layout/footer";
 import AdminLogin from "@/pages/admin/login";
 import AdminDashboard from "@/pages/admin/dashboard";
 import NewBlogPost from "@/pages/admin/blog/new";
+import ServicesAdmin from "@/pages/admin/services";
+import LeadsAdmin from "@/pages/admin/leads";
 
 function Router() {
   return (
@@ -25,6 +27,8 @@ function Router() {
       <Route path="/admin/login" component={AdminLogin} />
       <Route path="/admin/dashboard" component={AdminDashboard} />
       <Route path="/admin/blog/new" component={NewBlogPost} />
+      <Route path="/admin/services" component={ServicesAdmin} />
+      <Route path="/admin/leads" component={LeadsAdmin} />
       
       {/* Public Routes - With header/footer */}
       <Route>
