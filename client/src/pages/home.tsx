@@ -114,22 +114,48 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center animate-fade-in">
             <h1 className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold drop-shadow-lg mb-6 leading-tight relative z-10 text-[#0F2435]">
-              Cut through the Noise.<br />
-              Grow with clarity.
+              Cut Through the Noise.<br />
+              Grow With Clarity.
             </h1>
-            <p className="text-lg md:text-xl text-white/90 drop-shadow max-w-3xl mx-auto mb-12 leading-relaxed relative z-10">
-              Welcome to Thompson & Co's consultancy, The Collective: experts in recruitment marketing, employer branding, and talent strategy.
+            <p className="text-lg md:text-xl text-[#0F2435] drop-shadow max-w-4xl mx-auto mb-12 leading-relaxed relative z-10">
+              From customer campaigns to hiring funnels, we align your brand and marketing to do more with less—backed by AI-driven strategy and an enterprise-grade lens. We help SMBs, startups, and mid-market teams remove friction, cut waste, and accelerate measurable outcomes.
             </p>
             
             {/* Dual CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center relative z-10">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center relative z-10 mb-8">
               <Button 
                 size="lg"
-                className="bg-white text-primary px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300 hover-lift rounded-full hover:bg-white/90 drop-shadow-lg"
-                data-testid="button-get-in-touch"
+                className="bg-[#D89B2D] text-[#0F2435] px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300 hover-lift rounded-full hover:bg-[#D89B2D]/90 drop-shadow-lg"
+                data-testid="button-strategy-consult"
               >
-                GET IN TOUCH
+                Start Your 30-Minute Strategy Consult
               </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                className="bg-[#D89B2D] text-[#0F2435] px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300 hover-lift rounded-full border-[#D89B2D] hover:bg-[#D89B2D]/90 drop-shadow-lg"
+                data-testid="button-blueprint"
+              >
+                Get the Talent Marketing Blueprint
+              </Button>
+            </div>
+            
+            {/* Trust Stats */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-[#0F2435] relative z-10">
+              <div className="text-center">
+                <div className="font-bold text-lg">28% lower cost-per-apply</div>
+                <div className="text-sm opacity-80">with channel mix testing</div>
+              </div>
+              <div className="hidden sm:block w-px h-8 bg-[#0F2435]/20"></div>
+              <div className="text-center">
+                <div className="font-bold text-lg">2.1× lift in qualified applications</div>
+                <div className="text-sm opacity-80">proven methodology</div>
+              </div>
+              <div className="hidden sm:block w-px h-8 bg-[#0F2435]/20"></div>
+              <div className="text-center">
+                <div className="font-bold text-lg">Faster time-to-first-interview</div>
+                <div className="text-sm opacity-80">(7→ 2 days)</div>
+              </div>
             </div>
           </div>
         </div>
@@ -172,7 +198,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="section-divider mb-6 bg-accent"></div>
-              <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6">
+              <h2 className="font-playfair text-6xl md:text-7xl font-bold mb-6">
                 The Align360™ Framework
               </h2>
               <p className="text-xl mb-8 leading-relaxed opacity-90">

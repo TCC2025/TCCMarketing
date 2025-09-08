@@ -6,7 +6,7 @@
 
 :root {
   /* Brand Colors - The Collective by Thompson & Co */
-  --brushstroke-gradient: linear-gradient(135deg, #E7156A 0%, #F07B1E 20%, #D89B2D 40%, #10676F 70%, #0F2435 100%);
+  --brushstroke-gradient: linear-gradient(120deg, #0F2435 0%, #10676F 25%, #D89B2D 50%, #F07B1E 75%, #E7156A 100%);
   /* Core Palette */
   --magenta: #E7156A;
   --warm-orange: #F07B1E;
@@ -117,56 +117,69 @@
   
   .hero-brushstroke {
     position: absolute;
-    top: 10%;
-    right: -15%;
-    width: 80%;
-    height: 60%;
+    top: -5%;
+    right: -25%;
+    width: 120%;
+    height: 85%;
     background: var(--brushstroke-gradient);
-    transform: rotate(-25deg);
-    border-radius: 60% 40% 80% 20% / 50% 60% 40% 50%;
-    filter: blur(1px);
-    opacity: 0.85;
+    transform: rotate(-12deg) skewY(-3deg);
+    border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%;
+    filter: blur(0.8px);
+    opacity: 0.9;
     z-index: 1;
-    animation: gentleFloat 8s ease-in-out infinite, subtleShift 12s ease-in-out infinite;
-    box-shadow: 0 20px 60px rgba(231, 21, 106, 0.15), 0 30px 80px rgba(16, 103, 111, 0.1);
+    animation: gentleFloat 10s ease-in-out infinite, subtleShift 15s ease-in-out infinite, breathePulse 8s ease-in-out infinite;
+    box-shadow: 0 30px 80px rgba(231, 21, 106, 0.2), 0 40px 100px rgba(16, 103, 111, 0.15), 0 10px 40px rgba(216, 155, 45, 0.1);
   }
   
   .hero-brushstroke::before {
     content: '';
     position: absolute;
-    inset: -8px;
-    background: var(--brushstroke-gradient);
+    inset: -12px;
+    background: linear-gradient(140deg, rgba(231, 21, 106, 0.4) 0%, rgba(240, 123, 30, 0.3) 25%, rgba(216, 155, 45, 0.4) 50%, rgba(16, 103, 111, 0.3) 75%, rgba(15, 36, 53, 0.4) 100%);
     border-radius: inherit;
-    filter: blur(4px);
-    opacity: 0.3;
+    filter: blur(8px);
+    opacity: 0.6;
     z-index: -1;
-    animation: breathe 6s ease-in-out infinite;
+    animation: breathe 8s ease-in-out infinite;
   }
   
   .hero-brushstroke::after {
     content: '';
     position: absolute;
-    inset: 3px;
-    background: linear-gradient(135deg, rgba(231, 21, 106, 0.8) 0%, rgba(240, 123, 30, 0.8) 20%, rgba(216, 155, 45, 0.8) 40%, rgba(16, 103, 111, 0.8) 70%, rgba(15, 36, 53, 0.8) 100%);
+    inset: 4px;
+    background: linear-gradient(110deg, rgba(231, 21, 106, 0.7) 0%, rgba(240, 123, 30, 0.6) 30%, rgba(216, 155, 45, 0.8) 55%, rgba(16, 103, 111, 0.6) 80%, rgba(15, 36, 53, 0.7) 100%);
     border-radius: inherit;
-    filter: blur(0.5px);
-    opacity: 0.9;
+    filter: blur(1px);
+    opacity: 0.8;
     z-index: -1;
+    animation: subtleWave 12s ease-in-out infinite;
   }
   
   @keyframes gentleFloat {
-    0%, 100% { transform: rotate(-25deg) translateY(0px); }
-    50% { transform: rotate(-25deg) translateY(-8px); }
+    0%, 100% { transform: rotate(-12deg) skewY(-3deg) translateY(0px); }
+    50% { transform: rotate(-12deg) skewY(-3deg) translateY(-12px); }
   }
   
   @keyframes subtleShift {
-    0%, 100% { transform: rotate(-25deg) translateX(0px); }
-    50% { transform: rotate(-25deg) translateX(5px); }
+    0%, 100% { transform: rotate(-12deg) skewY(-3deg) translateX(0px); }
+    33% { transform: rotate(-10deg) skewY(-2deg) translateX(8px); }
+    66% { transform: rotate(-14deg) skewY(-4deg) translateX(-4px); }
   }
   
   @keyframes breathe {
-    0%, 100% { transform: scale(1); opacity: 0.3; }
-    50% { transform: scale(1.02); opacity: 0.2; }
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.05); opacity: 0.4; }
+  }
+  
+  @keyframes breathePulse {
+    0%, 100% { opacity: 0.9; }
+    50% { opacity: 0.7; }
+  }
+  
+  @keyframes subtleWave {
+    0%, 100% { transform: translateX(0px) scale(1); }
+    25% { transform: translateX(3px) scale(1.01); }
+    75% { transform: translateX(-2px) scale(0.99); }
   }
   
   @keyframes gradientShift {

@@ -14,7 +14,7 @@ export default function SectionHeader({
   return (
     <div className={`text-center ${className}`}>
       {showDivider && <div className="section-divider mb-6"></div>}
-      <h2 className="font-playfair text-4xl md:text-5xl font-bold text-primary mb-6">
+      <h2 className="font-playfair text-6xl md:text-7xl font-bold text-primary mb-6">
         {title}
       </h2>
       {subtitle && (
