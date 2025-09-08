@@ -14,6 +14,7 @@ import { seoData } from "@/lib/seo";
 import { useSEO } from "@/hooks/useSEO";
 import { StructuredData } from "@/components/seo/StructuredData";
 import { createOrganizationStructuredData } from "@/lib/seo";
+import { trackFormSubmission, trackCTAClick } from "@/lib/analytics";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -54,6 +55,9 @@ export default function Home() {
       });
 
       if (response.ok) {
+        // Track conversion
+        trackFormSubmission("blueprint_download", "hero_section");
+        
         toast({
           title: "Success!",
           description: "Your blueprint is on its way. Check your email in a few minutes.",

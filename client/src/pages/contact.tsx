@@ -11,6 +11,7 @@ import { seoData } from "@/lib/seo";
 import { useSEO } from "@/hooks/useSEO";
 import { StructuredData } from "@/components/seo/StructuredData";
 import { createOrganizationStructuredData } from "@/lib/seo";
+import { trackFormSubmission, trackCTAClick } from "@/lib/analytics";
 
 export default function Contact() {
   // SEO Optimization
