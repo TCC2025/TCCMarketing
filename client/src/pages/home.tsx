@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import SectionHeader from "@/components/ui/section-header";
 import Stat from "@/components/ui/stat";
 import Testimonial from "@/components/ui/testimonial";
-import { Bot, Users, TrendingUp, Star, CheckCircle } from "lucide-react";
+import { Bot, Users, TrendingUp, Star, CheckCircle, User } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import servicesData from "@/data/services.json";
 import statsData from "@/data/stats.json";
@@ -151,16 +151,19 @@ export default function Home() {
             {servicesData.map((service, index) => {
               const IconComponent = serviceIcons[service.title as keyof typeof serviceIcons] || Bot;
               return (
-                <Card key={index} className="p-8 hover-lift border border-border" data-testid={`service-card-${service.slug}`}>
-                  <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
-                    <IconComponent className="w-8 h-8 text-accent" />
+                <Card key={index} className={`gradient-card p-8 hover-lift border-0 slide-in-up stagger-${index + 1} relative overflow-hidden group`} data-testid={`service-card-${service.slug}`}>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-bg opacity-10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
+                  <div className="relative z-10">
+                    <div className="w-16 h-16 gradient-button rounded-xl flex items-center justify-center mb-6 float-animation">
+                      <IconComponent className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="font-playfair text-xl font-semibold text-primary mb-4 group-hover:text-shimmer transition-all duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {service.description}
+                    </p>
                   </div>
-                  <h3 className="font-playfair text-xl font-semibold text-primary mb-4">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
                 </Card>
               );
             })}
@@ -247,19 +250,37 @@ export default function Home() {
           {/* Stats */}
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             {statsData.map((stat, index) => (
-              <Stat key={index} value={stat.value} description={stat.description} />
+              <div key={index} className={`text-center slide-in-up stagger-${index + 1} group`}>
+                <div className="font-playfair text-5xl font-bold mb-2 text-shimmer group-hover:scale-110 transition-transform duration-300">
+                  {stat.value}
+                </div>
+                <p className="text-lg text-secondary group-hover:text-primary transition-colors duration-300">
+                  {stat.description}
+                </p>
+              </div>
             ))}
           </div>
           
           {/* Testimonials */}
           <div className="grid md:grid-cols-2 gap-8">
             {testimonialsData.slice(0, 2).map((testimonial, index) => (
-              <Testimonial
-                key={index}
-                quote={testimonial.quote}
-                name={testimonial.name}
-                title={testimonial.title}
-              />
+              <div key={index} className={`gradient-card p-8 rounded-xl border-0 hover-lift slide-in-up stagger-${index + 1} group relative overflow-hidden`} data-testid={`testimonial-${testimonial.name.replace(/\s+/g, '').toLowerCase()}`}>
+                <div className="absolute top-0 left-0 w-2 h-full gradient-button rounded-r-full"></div>
+                <div className="relative z-10">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 gradient-button rounded-full flex items-center justify-center mr-4 pulse-gradient">
+                      <User className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-primary group-hover:text-shimmer transition-all duration-300">{testimonial.name}</h4>
+                      <p className="text-sm text-muted-foreground">{testimonial.title}</p>
+                    </div>
+                  </div>
+                  <blockquote className="text-lg text-secondary leading-relaxed italic">
+                    "{testimonial.quote}"
+                  </blockquote>
+                </div>
+              </div>
             ))}
           </div>
         </div>
