@@ -146,11 +146,8 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="hero" id="home">
-        {/* Brand gradient brush (inline SVG, full-strength color) */}
-        <svg className="hero__art" viewBox="0 0 2000 600" xmlns="http://www.w3.org/2000/svg"
-             preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg className="hero__art" viewBox="0 0 2000 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <defs>
-            {/* Force full-width stops across the viewBox */}
             <linearGradient id="tccGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="2000" y2="0">
               <stop offset="0%" stopColor="#10676F"/>
               <stop offset="22%" stopColor="#0F2435"/>
@@ -159,11 +156,10 @@ export default function Home() {
               <stop offset="100%" stopColor="#E7156A"/>
             </linearGradient>
           </defs>
-          {/* Wave path: adjust curve if desired */}
           <path d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z" fill="url(#tccGrad)"/>
         </svg>
 
-        <div className="hero__container">
+        <div className="container">
           <p className="hero__eyebrow">Modern Solutions for a Dynamic World</p>
 
           <h1 className="hero__title">

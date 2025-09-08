@@ -122,19 +122,34 @@
 
 @layer components {
   /* ===== Hero layout ===== */
-  .hero {
+  .hero { 
     position: relative; 
-    overflow: hidden; 
-    background: var(--tcc-bg);
+    background: #F8F6F2; 
+    overflow: hidden;
     padding: clamp(72px, 9vw, 128px) 0;
-    isolation: isolate;
   }
-  .hero__container {
-    width: min(1100px, 92%); 
-    margin-inline: auto; 
-    text-align: center; 
+  .hero__art { 
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    bottom: -8%; 
+    width: 140%; 
+    height: auto; 
+    z-index: 0; 
+    pointer-events: none; 
+  }
+  .hero .container { 
     position: relative; 
     z-index: 1;
+    width: min(1100px, 92%); 
+    margin-inline: auto; 
+    text-align: center;
+  }
+  @media (max-width: 600px) { 
+    .hero__art { 
+      width: 160%; 
+      bottom: -12%; 
+    } 
   }
 
   /* Eyebrow */
@@ -262,27 +277,6 @@
     font-size: 14px; 
   }
 
-  /* Gradient brush art (full spectrum visible) */
-  .hero__art {
-    position: absolute; 
-    left: 0; 
-    right: 0; 
-    bottom: -8%;
-    width: 140%; 
-    height: auto; 
-    z-index: 0; 
-    pointer-events: none;
-    /* IMPORTANT: no opacity/filters here; keeps colors rich */
-  }
-  /* Mobile: reduce impact so text stays dominant */
-  @media (max-width: 600px) {
-    .hero__art { 
-      width: 160%; 
-      bottom: -12%; 
-      opacity: .85; 
-    } /* subtle fade only on mobile */
-  }
-
   /* ===== Services Section ===== */
   /* Container helper to match hero width */
   .services .container { 
@@ -349,7 +343,8 @@
     background: linear-gradient(90deg, #10676F 0%, #0F2435 22%, #D89B2D 48%, #F07B1E 74%, #E7156A 100%);
   }
   .svc-card__title { 
-    font-size: 20px; 
+    font-size: 22px; 
+    line-height: 1.25;
     margin: 4px 0 6px; 
     color: var(--tcc-navy);
     @apply font-serif;
@@ -373,11 +368,20 @@
     min-height: 44px;
     display: inline-flex;
     align-items: center;
+    transition: color .2s ease, border-bottom-color .2s ease;
   }
   .svc-card__link:hover, 
   .svc-card__link:focus { 
     border-bottom-color: currentColor; 
+    color: #0d5a61;
     outline: none;
+  }
+
+  /* Mobile card padding adjustment */
+  @media (max-width: 600px) {
+    .svc-card { 
+      padding: 16px 16px 14px; 
+    }
   }
 
   /* Align360 mini-process */
@@ -391,6 +395,12 @@
     border: 1px solid var(--tcc-border); 
     border-radius: 14px; 
     background: #fff;
+  }
+  /* Increase gap on small screens */
+  @media (max-width: 600px) {
+    .process-strip { 
+      gap: 18px; 
+    }
   }
   .process-strip .step { 
     color: #365066; 
