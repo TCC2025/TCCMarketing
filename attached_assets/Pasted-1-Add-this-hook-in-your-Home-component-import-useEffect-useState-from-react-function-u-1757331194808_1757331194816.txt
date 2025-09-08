@@ -1,0 +1,61 @@
+1) Add this hook in your Home component   import { useEffect, useState } from "react"; 
+
+function useGradientSpan() {
+  const [x2, setX2] = useState(1200);
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      // Clamp the span so all 5 stops are visible across devices
+      let span =
+        w >= 1440 ? 1400 :
+        w >= 1024 ? 1200 :
+        w >= 640  ? 1100 :
+                    900;
+      setX2(span);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  return x2;
+}  2) Use it in SVG  Replace linearGradient’s x2 with the state value:  export default function Home() {
+  const gradientX2 = useGradientSpan();
+
+  return (
+    <section className="hero" id="home">
+      <svg
+        className="hero__art"
+        viewBox="0 0 2000 600"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMidYMid slice"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient
+            id="tccGrad"
+            gradientUnits="userSpaceOnUse"
+            x1="0"
+            y1="0"
+            x2={gradientX2}   // <-- responsive span
+            y2="0"
+          >
+            <stop offset="0%"   stopColor="#10676F" />
+            <stop offset="22%"  stopColor="#0F2435" />
+            <stop offset="48%"  stopColor="#D89B2D" />
+            <stop offset="74%"  stopColor="#F07B1E" />
+            <stop offset="100%" stopColor="#E7156A" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z"
+          fill="url(#tccGrad)"
+        />
+      </svg>
+      {/* ...rest of hero */}
+    </section>
+  );
+}   That’s it—now the gradient automatically compresses/expands to guarantee Teal → Navy → Gold → Orange → Magenta are all visible.   3) Slow pan for subtle motion gentle movement without changing colors:  @keyframes hero-pan { 0%{ transform: translateX(-4%);} 50%{ transform: translateX(-8%);} 100%{ transform: translateX(-4%);} }
+.hero__art { animation: hero-pan 28s linear infinite; }
+@media (prefers-reduced-motion: reduce){ .hero__art { animation: none; } }

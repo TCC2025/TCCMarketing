@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -20,7 +20,30 @@ import { StructuredData } from "@/components/seo/StructuredData";
 import { createOrganizationStructuredData } from "@/lib/seo";
 import { trackFormSubmission, trackCTAClick } from "@/lib/analytics";
 
+function useGradientSpan() {
+  const [x2, setX2] = useState(1200);
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      // Clamp the span so all 5 stops are visible across devices
+      let span =
+        w >= 1440 ? 1400 :
+        w >= 1024 ? 1200 :
+        w >= 640  ? 1100 :
+                    900;
+      setX2(span);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  return x2;
+}
+
 export default function Home() {
+  const gradientX2 = useGradientSpan();
   const [email, setEmail] = useState("");
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -159,7 +182,7 @@ export default function Home() {
               gradientUnits="userSpaceOnUse"
               x1="0"
               y1="0"
-              x2="1200"
+              x2={gradientX2}
               y2="0"
             >
               <stop offset="0%" stopColor="#10676F" />

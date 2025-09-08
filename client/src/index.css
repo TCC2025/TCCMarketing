@@ -215,6 +215,15 @@
     height: auto;
     z-index: 0;
     pointer-events: none;
+    animation: hero-pan 28s linear infinite;
+  }
+  @keyframes hero-pan { 
+    0% { transform: translateX(-4%); } 
+    50% { transform: translateX(-8%); } 
+    100% { transform: translateX(-4%); } 
+  }
+  @media (prefers-reduced-motion: reduce) { 
+    .hero__art { animation: none; } 
   }
 
   .hero .container {

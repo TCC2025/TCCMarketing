@@ -21,11 +21,11 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-[var(--tcc-background)]/95 backdrop-blur-sm border-b border-[var(--tcc-border)] sticky top-0 z-40 transition-all duration-300">
+    <header className="bg-[var(--tcc-navy)]/95 backdrop-blur-sm border-b border-[var(--tcc-border)] sticky top-0 z-40 transition-all duration-300">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" role="navigation" aria-label="Main navigation">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <Link href="/" className="font-playfair text-xl font-bold text-[var(--tcc-navy)] hover:text-[var(--tcc-teal)] transition-colors duration-200 tracking-tight">
+            <Link href="/" className="font-playfair text-xl font-bold text-white hover:text-[var(--tcc-teal)] transition-colors duration-200 tracking-tight">
               THE COLLECTIVE
             </Link>
           </div>
@@ -39,8 +39,8 @@ export default function Header() {
                   href={item.href}
                   className={`font-medium transition-colors duration-200 ${
                     isActiveLink(item.href)
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-accent"
+                      ? "text-white"
+                      : "text-white/80 hover:text-[var(--tcc-teal)]"
                   }`}
                   data-testid={`nav-link-${item.name.toLowerCase().replace(' ', '-')}`}
                 >
