@@ -196,40 +196,93 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Services Grid */}
-      <section id="services" className="py-20 lg:py-32 bg-card">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            title="Our Expertise"
-            subtitle="Four core pillars that drive measurable growth and competitive advantage"
-            className="mb-16"
-          />
+      {/* Services Section */}
+      <section className="services" id="services">
+        <div className="container">
+          <p className="eyebrow">What We Do</p>
+          <h2 className="services__title">Our Expertise</h2>
+          <p className="services__subhead">
+            Strategic marketing that pulls double duty for growth and hiring. We design systems,
+            not one-offs—so brand, funnels, and automation compound.
+          </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {servicesData.map((service, index) => {
-              const IconComponent =
-                serviceIcons[service.title as keyof typeof serviceIcons] || Bot;
-              return (
-                <Card
-                  key={index}
-                  className={`gradient-card p-8 hover-lift border-0 slide-in-up stagger-${index + 1} relative overflow-hidden group`}
-                  data-testid={`service-card-${service.slug}`}
-                >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-bg opacity-10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
-                  <div className="relative z-10">
-                    <div className="w-16 h-16 gradient-button rounded-xl flex items-center justify-center mb-6 float-animation">
-                      <IconComponent className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="font-playfair text-xl font-semibold text-primary mb-4 group-hover:text-accent transition-all duration-300">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-                </Card>
-              );
-            })}
+          <div className="services__grid">
+            {/* Card 1 */}
+            <article className="svc-card">
+              <div className="svc-card__bar"></div>
+              <h3 className="svc-card__title">Employer Branding & EVP</h3>
+              <p className="svc-card__lede">
+                Clarify the promise, proof, and story that attract the right talent and customers.
+              </p>
+              <ul className="svc-card__list">
+                <li>EVP & message kit</li>
+                <li>Career site & landing pages</li>
+                <li>Proof library & testimonials</li>
+              </ul>
+              <a href="/services/employer-branding" className="svc-card__link">Explore this service →</a>
+            </article>
+
+            {/* Card 2 */}
+            <article className="svc-card">
+              <div className="svc-card__bar"></div>
+              <h3 className="svc-card__title">Recruitment Marketing & Funnels</h3>
+              <p className="svc-card__lede">
+                High-signal sourcing and conversion flows that cut waste and reduce time-to-hire.
+              </p>
+              <ul className="svc-card__list">
+                <li>Channel mix & media plan</li>
+                <li>Funnel scorecard & CRO</li>
+                <li>Analytics with guardrails</li>
+              </ul>
+              <a href="/services/recruitment-marketing" className="svc-card__link">Explore this service →</a>
+            </article>
+
+            {/* Card 3 */}
+            <article className="svc-card">
+              <div className="svc-card__bar"></div>
+              <h3 className="svc-card__title">AI-Driven Marketing & Automation</h3>
+              <p className="svc-card__lede">
+                Sequenced campaigns and workflows that scale personalization without adding headcount.
+              </p>
+              <ul className="svc-card__list">
+                <li>CRM/CDP hygiene & journeys</li>
+                <li>Email/SMS & lead routing</li>
+                <li>Dashboards & QA governance</li>
+              </ul>
+              <a href="/services/ai-marketing" className="svc-card__link">Explore this service →</a>
+            </article>
+
+            {/* Card 4 */}
+            <article className="svc-card">
+              <div className="svc-card__bar"></div>
+              <h3 className="svc-card__title">Fractional CMO / Growth Strategy</h3>
+              <p className="svc-card__lede">
+                Executive-level strategy and operating cadence—enterprise rigor without full-time overhead.
+              </p>
+              <ul className="svc-card__list">
+                <li>90-day plan & OKRs</li>
+                <li>Positioning & offer design</li>
+                <li>RevOps & roadmap stewardship</li>
+              </ul>
+              <a href="/services/fractional-cmo" className="svc-card__link">Explore this service →</a>
+            </article>
+          </div>
+
+          {/* Align360 strip */}
+          <div className="process-strip" aria-label="Align360 process">
+            <div className="step"><span>Audit</span><em> see the whole system</em></div>
+            <div className="step"><span>Prioritize</span><em> pick high-leverage fixes</em></div>
+            <div className="step"><span>Enable</span><em> deploy, measure, compound</em></div>
+          </div>
+
+          {/* Section CTA */}
+          <div className="services__cta">
+            <h3 className="services__cta-title">Not sure where to start?</h3>
+            <p className="services__cta-sub">Begin with a 30-minute Strategy Consult or grab the Align360™ Starter Kit.</p>
+            <div className="services__cta-row">
+              <a className="btn btn--primary" href="#contact">Start Your Strategy Consult</a>
+              <a className="btn btn--ghost" href="#blueprint">Get the Starter Kit</a>
+            </div>
           </div>
         </div>
       </section>
