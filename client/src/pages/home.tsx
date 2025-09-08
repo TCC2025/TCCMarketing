@@ -209,24 +209,24 @@ export default function Home() {
           <p className="hero__promise"><em>Growth that's sustainable, measurable, and predictable. It's science.</em></p>
         </div>
 
-        {/* Bottom anchor wave (single, shiny, no external assets) */}
-        <div className="hero__waveWrap" aria-hidden="true">
-          <svg className="hero__wave" viewBox="0 0 2000 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="tccGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
-                <stop offset="0%"   stopColor="#006B75"/>
-                <stop offset="30%"  stopColor="#FFD700"/>
-                <stop offset="60%"  stopColor="#FF8C00"/>
-                <stop offset="100%" stopColor="#FF1493"/>
-              </linearGradient>
-            </defs>
-            <path d="M0,120 C500,40 1500,200 2000,100 L2000,220 L0,220 Z" fill="url(#tccGrad)"/>
-          </svg>
-
-          {/* CSS-only overlays (no files) */}
-          <span className="hero__waveGloss"></span>
-          <span className="hero__waveGrain"></span>
-        </div>
+        <svg className="hero__swoop"
+             viewBox="0 0 2000 600"
+             xmlns="http://www.w3.org/2000/svg"
+             preserveAspectRatio="xMidYMid slice"
+             aria-hidden="true">
+          <defs>
+            <linearGradient id="tccGrad" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+              {/* condensed span so all 5 colors pop */}
+              <stop offset="0%"   stopColor="#0F2435"/>
+              <stop offset="22%"  stopColor="#10676F"/>
+              <stop offset="46%"  stopColor="#D89B2D"/>
+              <stop offset="66%"  stopColor="#F07B1E"/>
+              <stop offset="100%" stopColor="#E7156A"/>
+            </linearGradient>
+          </defs>
+          {/* keep the same wave path, fill with updated gradient */}
+          <path d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z" fill="url(#tccGrad)"/>
+        </svg>
       </section>
       {/* Services Section */}
       <section className="services" id="services">

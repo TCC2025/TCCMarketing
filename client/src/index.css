@@ -2,18 +2,24 @@
 @import "./styles/animations.css";
 
 :root{
-  /* Gradient (one place) */
-  --primary-gradient: linear-gradient( 
+  --ivory: #F8F6F2;
+
+  /* Brand gradient — boosted saturation, wider teal/navy, tighter gold/orange */
+  --primary-gradient: linear-gradient(
     90deg,
-    #0F2435 0%, 
-    #10676F 20%, 
-    #D89B2D 40%, 
-    #F07B1E 55%, 
-    #E7156A 100%
+    #0F2435 0%,      /* Navy (wider)  */
+    #10676F 22%,     /* Teal (wider)  */
+    #D89B2D 46%,     /* Gold (tighter)*/
+    #F07B1E 66%,     /* Orange        */
+    #E7156A 100%     /* Magenta       */
   );
 
+  /* Small positioning knobs so we can tweak without hunting */
+  --hero-shift: 28px;      /* move hero content DOWN ~1/4" */
+  --swoop-shift: 28px;     /* move gradient swoop DOWN ~1/4" */
+
   /* Core brand */
-  --tcc-bg:#F8F6F2;         /* single ivory */
+  --tcc-bg: var(--ivory);         /* single ivory */
   --tcc-ink:#21242C;
   --tcc-navy:#0F2435;
   --tcc-teal:#10676F;
@@ -98,10 +104,10 @@
   /* ===== Hero layout ===== */
   .hero {
     position: relative;
-    background: #F8F6F2;
+    background: var(--ivory);
     overflow: hidden;
-    padding: clamp(24px, 4vw, 60px) 0 0;
-    min-height: 58vh;
+    padding-top: clamp(64px, 8vw, 96px);
+    padding-bottom: clamp(40px, 6vw, 72px);
   }
 
   .hero__art {
@@ -172,13 +178,20 @@
   }
 
   /* Wrapper for the wave + overlays */
-  .hero__waveWrap{
-    position: relative;
-    display: block;
-    width: 150%;
-    height: 200px;
-    left: -25%;
-    margin-top: -84px;
+  .hero__swoop{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(-8% + var(--swoop-shift));
+    width: 140%;
+    height: auto;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Content wrapper inside hero */
+  .hero .container {
+    transform: translateY(var(--hero-shift)); /* move content down ~1/4" */
   }
 
   /* The wave SVG itself */
@@ -331,7 +344,7 @@
   }
 
   .btn--primary {
-    background: var(--tcc-navy);
+    background: #0F2435;
     color: #fff;
     box-shadow: 0 8px 24px rgba(15, 36, 53, .16);
   }
@@ -344,17 +357,15 @@
 
   .btn--ghost {
     background: #fff;
-    color: var(--tcc-navy);
-    border-color: var(--tcc-border);
+    color: #0F2435;
+    border: 1px solid rgba(15, 36, 53, .15);
   }
 
   .btn--ghost:hover {
-    /* gradient border on hover */
     background:
-      linear-gradient(#fff, #fff) padding-box,
-      linear-gradient(90deg, #10676F 0%, #0F2435 22%, #D89B2D 48%, #F07B1E 74%, #E7156A 100%) border-box;
+      linear-gradient(#fff,#fff) padding-box,
+      var(--primary-gradient) border-box;
     border: 1px solid transparent;
-    color: var(--tcc-navy);
     transform: scale(1.02);
     box-shadow: 0 8px 24px rgba(231, 21, 106, .12);
   }

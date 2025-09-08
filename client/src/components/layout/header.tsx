@@ -26,8 +26,13 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" role="navigation" aria-label="Main navigation">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <Link href="/" className="font-playfair text-xl font-bold text-white hover:text-[var(--tcc-teal)] transition-colors duration-200 tracking-tight">
-              THE COLLECTIVE
+            <Link href="/" className="flex items-center hover:opacity-80 transition-opacity duration-200">
+              <img 
+                src="@assets/tcc-logo-nav-navy_1757373137779.png" 
+                alt="The Collective by Thompson & Co" 
+                className="h-8 w-auto object-contain"
+                style={{ height: '32px', width: 'auto', objectFit: 'contain' }}
+              />
             </Link>
           </div>
           
