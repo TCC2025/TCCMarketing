@@ -147,7 +147,7 @@ export default function Home() {
       {/* Hero Section - SVG Gradient Brush */}
       <section className="hero">
         {/* Gradient "brush" (inline SVG, no image file) */}
-        <svg className="hero__art" viewBox="0 0 2000 600" aria-hidden="true">
+        <svg className="hero__art" viewBox="0 0 2000 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <defs>
             <linearGradient id="tccGrad" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#10676F"/>
@@ -157,9 +157,7 @@ export default function Home() {
               <stop offset="100%" stopColor="#E7156A"/>
             </linearGradient>
           </defs>
-          {/* Editable path: tweak the curve to taste */}
-          <path d="M-50,260 C350,80 780,520 1260,260 C1550,110 1780,420 2100,300 L2100,640 -50,640Z"
-                fill="url(#tccGrad)" opacity="0.65"></path>
+          <path d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z" fill="url(#tccGrad)"/>
         </svg>
 
         <div className="container">
