@@ -6,9 +6,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { FileUpload } from "@/components/ui/file-upload";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
-import { ArrowLeft, Plus, Edit, Save, X, Star } from "lucide-react";
+import { ArrowLeft, Plus, Edit, Save, X, Star, ImageIcon } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 
 export default function ContentAdmin() {
@@ -30,6 +31,7 @@ export default function ContentAdmin() {
     tags: "",
     isPublished: true
   });
+  const [caseStudyMedia, setCaseStudyMedia] = useState<Array<{id: string, name: string, url: string, type: string, size: number}>>([]);
 
   const [newTestimonial, setNewTestimonial] = useState({
     name: "",
