@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "techcorp-talent-pipeline-transformation",
+    "title": "How We Transformed TechCorp's Talent Pipeline",
+    "description": "A comprehensive employer branding and recruitment marketing transformation that resulted in a 400% increase in qualified applications and 60% reduction in cost-per-hire.",
+    "category": "Employer Branding",
+    "date": "2024",
+    "results": [
+      { "value": "400%", "metric": "Increase in Applications" },
+      { "value": "60%", "metric": "Reduction in Cost-per-Hire" }
+    ],
+    "challenge": "TechCorp was struggling to attract senior engineering talent in a competitive market.",
+    "solution": "Complete employer brand overhaul with AI-powered recruitment marketing automation.",
+    "outcome": "Became recognized as a top employer in their industry within 12 months."
+  },
+  {
+    "slug": "medtech-ai-automation-success",
+    "title": "MedTech's AI-Powered Recruitment Revolution",
+    "description": "Implementation of intelligent automation that scaled recruitment efforts while maintaining personalization, resulting in 285% more qualified candidates.",
+    "category": "AI Marketing",
+    "date": "2024",
+    "results": [
+      { "value": "285%", "metric": "More Qualified Candidates" },
+      { "value": "45%", "metric": "Faster Time-to-Hire" }
+    ],
+    "challenge": "Manual recruitment processes couldn't scale with rapid company growth.",
+    "solution": "AI-powered candidate scoring, automated nurturing, and predictive analytics.",
+    "outcome": "Scaled recruitment operations 5x without increasing headcount."
+  },
+  {
+    "slug": "startup-fractional-cmo-growth",
+    "title": "Scaling Startup Success with Fractional CMO Leadership",
+    "description": "Strategic marketing leadership that helped a growing startup build competitive talent acquisition capabilities without full-time executive costs.",
+    "category": "Fractional CMO",
+    "date": "2023",
+    "results": [
+      { "value": "150%", "metric": "Increase in Brand Awareness" },
+      { "value": "$2.5M", "metric": "Cost Savings vs Full-time CMO" }
+    ],
+    "challenge": "Fast-growing startup needed senior marketing expertise but couldn't justify full-time CMO.",
+    "solution": "Fractional CMO services with focus on talent brand and recruitment marketing.",
+    "outcome": "Successfully competed for talent against much larger organizations."
+  },
+  {
+    "slug": "executive-thought-leadership-impact",
+    "title": "Building Executive Influence in Healthcare",
+    "description": "Personal branding strategy that positioned a healthcare CEO as an industry thought leader, driving both talent attraction and business development.",
+    "category": "Executive Branding",
+    "date": "2023",
+    "results": [
+      { "value": "500%", "metric": "Increase in LinkedIn Engagement" },
+      { "value": "25%", "metric": "Improvement in Employer Brand Perception" }
+    ],
+    "challenge": "Healthcare CEO needed stronger industry presence to attract top talent and partners.",
+    "solution": "Comprehensive personal brand strategy with content and speaking engagement focus.",
+    "outcome": "Became recognized industry voice, significantly improving company's talent attraction."
+  },
+  {
+    "slug": "manufacturing-employer-brand-modernization",
+    "title": "Modernizing Manufacturing's Employer Brand",
+    "description": "Traditional manufacturing company's journey to attract younger talent through authentic employer branding and digital-first recruitment marketing.",
+    "category": "Employer Branding",
+    "date": "2023",
+    "results": [
+      { "value": "200%", "metric": "Increase in Millennial Applications" },
+      { "value": "80%", "metric": "Improvement in Glassdoor Rating" }
+    ],
+    "challenge": "Traditional manufacturing image wasn't attracting younger, tech-savvy workers.",
+    "solution": "Complete brand modernization with focus on innovation, technology, and career growth.",
+    "outcome": "Successfully repositioned as an innovative, forward-thinking employer."
+  },
+  {
+    "slug": "professional-services-automation-efficiency",
+    "title": "Professional Services Firm Automates Talent Acquisition",
+    "description": "Large professional services firm streamlined their complex, multi-office recruitment process through intelligent automation and centralized branding.",
+    "category": "AI Marketing",
+    "date": "2024",
+    "results": [
+      { "value": "70%", "metric": "Reduction in Admin Time" },
+      { "value": "35%", "metric": "Improvement in Candidate Experience Scores" }
+    ],
+    "challenge": "Inconsistent recruitment processes across multiple offices and practice areas.",
+    "solution": "Centralized automation platform with customizable workflows for different roles and locations.",
+    "outcome": "Achieved consistency and efficiency across all offices while maintaining local flexibility."
+  }
+]

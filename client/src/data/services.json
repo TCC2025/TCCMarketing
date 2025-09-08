@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "ai-marketing-automation",
+    "title": "AI Marketing & Automation",
+    "description": "Intelligent automation strategies that scale your marketing efforts while maintaining personalization at every touchpoint.",
+    "longDescription": "Transform your recruitment marketing with cutting-edge AI and automation technologies. Our comprehensive approach combines machine learning, predictive analytics, and intelligent workflows to create scalable, personalized candidate experiences that drive measurable results.",
+    "keyFeatures": [
+      "Automated candidate nurturing sequences",
+      "Predictive candidate scoring and matching",
+      "Dynamic content personalization at scale",
+      "Cross-platform campaign orchestration",
+      "Advanced analytics and attribution modeling",
+      "AI-powered chatbots for initial candidate screening"
+    ]
+  },
+  {
+    "slug": "employer-branding-talent-marketing",
+    "title": "Employer Branding & Talent Marketing",
+    "description": "Comprehensive strategies that position your organization as an employer of choice in competitive talent markets.",
+    "longDescription": "Build a compelling employer brand that authentically represents your culture while strategically positioning your organization to attract top talent. Our holistic approach encompasses brand strategy, content creation, and multi-channel activation.",
+    "keyFeatures": [
+      "Employer value proposition (EVP) development",
+      "Brand messaging and positioning strategy",
+      "Content strategy and creation",
+      "Career site optimization and design",
+      "Social media and digital presence management",
+      "Employee advocacy program development"
+    ]
+  },
+  {
+    "slug": "fractional-cmo",
+    "title": "Fractional CMO",
+    "description": "Senior-level marketing leadership and strategic guidance without the full-time commitment or cost.",
+    "longDescription": "Access experienced C-level marketing expertise on a flexible basis. Our fractional CMO services provide strategic leadership, team development, and execution oversight to accelerate your marketing initiatives and drive business growth.",
+    "keyFeatures": [
+      "Strategic marketing planning and execution",
+      "Marketing team leadership and development",
+      "Budget planning and resource allocation",
+      "Technology stack evaluation and optimization",
+      "Performance measurement and optimization",
+      "Board-level reporting and stakeholder communication"
+    ]
+  },
+  {
+    "slug": "executive-branding",
+    "title": "Executive Branding",
+    "description": "Personal brand development for C-suite executives and thought leaders to amplify influence and drive business results.",
+    "longDescription": "Elevate your executive presence and thought leadership through strategic personal branding. We help C-suite leaders build authentic, influential personal brands that drive business outcomes and enhance organizational reputation.",
+    "keyFeatures": [
+      "Personal brand strategy and positioning",
+      "Content strategy and thought leadership development",
+      "Social media presence optimization",
+      "Speaking engagement and media training",
+      "Executive LinkedIn optimization",
+      "Reputation management and monitoring"
+    ]
+  }
+]

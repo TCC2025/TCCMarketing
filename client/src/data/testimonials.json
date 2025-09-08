@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Sarah Chen",
+    "title": "VP of Talent, TechFlow Industries",
+    "quote": "Thompson & Co. transformed our employer brand completely. We went from struggling to attract senior talent to having a 300% increase in applications from qualified candidates.",
+    "company": "TechFlow Industries",
+    "rating": 5
+  },
+  {
+    "name": "Marcus Rodriguez",
+    "title": "Chief People Officer, Innovation Labs",
+    "quote": "The Align360™ framework gave us clarity we never had before. Our recruitment marketing now feels authentic and drives real results.",
+    "company": "Innovation Labs",
+    "rating": 5
+  },
+  {
+    "name": "Jennifer Walsh",
+    "title": "Director of Talent Acquisition, MedTech Solutions",
+    "quote": "Their AI-powered automation reduced our time-to-hire by 45% while improving candidate quality. The ROI was immediate and substantial.",
+    "company": "MedTech Solutions",
+    "rating": 5
+  },
+  {
+    "name": "David Kumar",
+    "title": "CEO, GrowthStartup Inc.",
+    "quote": "As a scaling startup, having fractional CMO expertise was game-changing. They helped us build a talent brand that actually competes with the big players.",
+    "company": "GrowthStartup Inc.",
+    "rating": 5
+  },
+  {
+    "name": "Lisa Thompson",
+    "title": "Head of HR, Manufacturing Corp",
+    "quote": "We were skeptical about employer branding in manufacturing, but Thompson & Co. showed us how to tell our story authentically. Our employee referrals increased by 200%.",
+    "company": "Manufacturing Corp",
+    "rating": 5
+  }
+]

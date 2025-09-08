@@ -1,0 +1,82 @@
+[
+  {
+    "slug": "future-of-ai-recruitment",
+    "title": "The Future of AI in Recruitment: Beyond Automation",
+    "excerpt": "Explore how artificial intelligence is transforming talent acquisition beyond simple automation, creating more strategic and human-centered recruitment processes.",
+    "category": "AI & Automation",
+    "publishedAt": "December 15, 2024",
+    "readTime": "8 min read",
+    "featured": true,
+    "author": "Thompson & Co. Team"
+  },
+  {
+    "slug": "employer-branding-mistakes-2024",
+    "title": "5 Critical Employer Branding Mistakes to Avoid in 2024",
+    "excerpt": "Learn from common employer branding pitfalls that can damage your talent attraction efforts and how to build an authentic, compelling employer brand.",
+    "category": "Employer Branding",
+    "publishedAt": "December 10, 2024",
+    "readTime": "6 min read",
+    "featured": false,
+    "author": "Thompson & Co. Team"
+  },
+  {
+    "slug": "fractional-leadership-talent-strategy",
+    "title": "When Fractional Leadership Makes Sense for Talent Strategy",
+    "excerpt": "Discover how fractional CMO and talent leadership can provide the expertise growing companies need without the full-time commitment.",
+    "category": "Leadership",
+    "publishedAt": "December 5, 2024",
+    "readTime": "7 min read",
+    "featured": false,
+    "author": "Thompson & Co. Team"
+  },
+  {
+    "slug": "candidate-experience-roi-measurement",
+    "title": "Measuring the ROI of Candidate Experience Improvements",
+    "excerpt": "Data-driven approaches to quantifying the business impact of candidate experience initiatives and optimization strategies.",
+    "category": "Talent Marketing",
+    "publishedAt": "November 28, 2024",
+    "readTime": "9 min read",
+    "featured": false,
+    "author": "Thompson & Co. Team"
+  },
+  {
+    "slug": "executive-personal-branding-guide",
+    "title": "The Executive's Guide to Personal Branding in 2024",
+    "excerpt": "Strategic approaches for C-suite executives to build authentic personal brands that drive business results and attract top talent.",
+    "category": "Leadership",
+    "publishedAt": "November 20, 2024",
+    "readTime": "10 min read",
+    "featured": false,
+    "author": "Thompson & Co. Team"
+  },
+  {
+    "slug": "talent-marketing-automation-trends",
+    "title": "Talent Marketing Automation: 2024 Trends and Best Practices",
+    "excerpt": "Latest developments in recruitment marketing automation and how forward-thinking organizations are implementing these technologies.",
+    "category": "AI & Automation",
+    "publishedAt": "November 15, 2024",
+    "readTime": "8 min read",
+    "featured": false,
+    "author": "Thompson & Co. Team"
+  },
+  {
+    "slug": "employer-brand-authenticity-framework",
+    "title": "Building Authentic Employer Brands: A Strategic Framework",
+    "excerpt": "Step-by-step framework for developing employer brands that authentically represent your culture while strategically attracting target talent.",
+    "category": "Employer Branding",
+    "publishedAt": "November 8, 2024",
+    "readTime": "12 min read",
+    "featured": false,
+    "author": "Thompson & Co. Team"
+  },
+  {
+    "slug": "competitive-talent-intelligence",
+    "title": "Using Competitive Intelligence in Talent Acquisition",
+    "excerpt": "How to gather and leverage competitive intelligence to inform your talent strategy and gain advantages in competitive hiring markets.",
+    "category": "Talent Marketing",
+    "publishedAt": "October 30, 2024",
+    "readTime": "7 min read",
+    "featured": false,
+    "author": "Thompson & Co. Team"
+  }
+]
