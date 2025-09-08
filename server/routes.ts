@@ -10,6 +10,29 @@ import {
 } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Health check endpoints
+  app.get('/api/health', (req, res) => {
+    res.json({ status: 'ok', timestamp: new Date().toISOString() });
+  });
+
+  app.get('/api/health/database', async (req, res) => {
+    try {
+      // Test database connection by fetching services
+      const services = await storage.getServices();
+      res.json({ 
+        status: 'ok', 
+        database: 'connected',
+        servicesCount: services.length 
+      });
+    } catch (error) {
+      res.status(500).json({ 
+        status: 'error', 
+        database: 'disconnected',
+        error: 'Database connection failed' 
+      });
+    }
+  });
+
   // Configure multer for file uploads
   const upload = multer({
     dest: 'public/uploads/',

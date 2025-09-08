@@ -2,11 +2,15 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { DeploymentChecker } from "@/components/deployment-checker";
+import { BackupManager } from "@/components/backup-manager";
+import { QuickSetupGuide } from "@/components/quick-setup-guide";
 import { useQuery } from "@tanstack/react-query";
 import { 
   FileText, Users, Briefcase, MessageSquare, 
   BarChart3, Settings, PlusCircle, Edit3,
-  LogOut, Home, BookOpen
+  LogOut, Home, BookOpen, Rocket, Shield, HelpCircle
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -180,54 +184,89 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        {/* Recent Activity */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <Card className="p-6">
-            <h3 className="font-playfair text-xl font-bold text-primary mb-4">
-              Recent Leads
-            </h3>
-            <div className="space-y-3">
-              {leads.slice(0, 5).map((lead: any, index: number) => (
-                <div key={index} className="flex items-center justify-between py-2 border-b border-border last:border-0">
-                  <div>
-                    <p className="font-medium text-primary">{lead.name || lead.email}</p>
-                    <p className="text-sm text-muted-foreground">{lead.formType}</p>
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    {new Date(lead.createdAt).toLocaleDateString()}
-                  </p>
-                </div>
-              ))}
-              {leads.length === 0 && (
-                <p className="text-muted-foreground text-center py-4">No leads yet</p>
-              )}
-            </div>
-          </Card>
+        {/* Enhanced Dashboard with Tabs */}
+        <Tabs defaultValue="overview" className="space-y-8">
+          <TabsList className="grid w-full grid-cols-4">
+            <TabsTrigger value="overview" className="flex items-center gap-2">
+              <BarChart3 className="w-4 h-4" />
+              Overview
+            </TabsTrigger>
+            <TabsTrigger value="deployment" className="flex items-center gap-2">
+              <Rocket className="w-4 h-4" />
+              Deployment
+            </TabsTrigger>
+            <TabsTrigger value="backup" className="flex items-center gap-2">
+              <Shield className="w-4 h-4" />
+              Backup
+            </TabsTrigger>
+            <TabsTrigger value="setup" className="flex items-center gap-2">
+              <HelpCircle className="w-4 h-4" />
+              Setup Guide
+            </TabsTrigger>
+          </TabsList>
 
-          <Card className="p-6">
-            <h3 className="font-playfair text-xl font-bold text-primary mb-4">
-              Content Status
-            </h3>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-primary">Published Blog Posts</span>
-                <span className="font-bold text-accent">{blogPosts.filter((p: any) => p.isPublished).length}</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-primary">Draft Posts</span>
-                <span className="font-bold text-muted-foreground">{blogPosts.filter((p: any) => !p.isPublished).length}</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-primary">Active Services</span>
-                <span className="font-bold text-accent">{services.filter((s: any) => s.isActive).length}</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-primary">Published Case Studies</span>
-                <span className="font-bold text-accent">{caseStudies.filter((cs: any) => cs.isPublished).length}</span>
-              </div>
+          <TabsContent value="overview" className="space-y-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <Card className="p-6">
+                <h3 className="font-playfair text-xl font-bold text-primary mb-4">
+                  Recent Leads
+                </h3>
+                <div className="space-y-3">
+                  {leads.slice(0, 5).map((lead: any, index: number) => (
+                    <div key={index} className="flex items-center justify-between py-2 border-b border-border last:border-0">
+                      <div>
+                        <p className="font-medium text-primary">{lead.name || lead.email}</p>
+                        <p className="text-sm text-muted-foreground">{lead.formType}</p>
+                      </div>
+                      <p className="text-xs text-muted-foreground">
+                        {new Date(lead.createdAt).toLocaleDateString()}
+                      </p>
+                    </div>
+                  ))}
+                  {leads.length === 0 && (
+                    <p className="text-muted-foreground text-center py-4">No leads yet</p>
+                  )}
+                </div>
+              </Card>
+
+              <Card className="p-6">
+                <h3 className="font-playfair text-xl font-bold text-primary mb-4">
+                  Content Status
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-primary">Published Blog Posts</span>
+                    <span className="font-bold text-accent">{blogPosts.filter((p: any) => p.isPublished).length}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-primary">Draft Posts</span>
+                    <span className="font-bold text-muted-foreground">{blogPosts.filter((p: any) => !p.isPublished).length}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-primary">Active Services</span>
+                    <span className="font-bold text-accent">{services.filter((s: any) => s.isActive).length}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-primary">Published Case Studies</span>
+                    <span className="font-bold text-accent">{caseStudies.filter((cs: any) => cs.isPublished).length}</span>
+                  </div>
+                </div>
+              </Card>
             </div>
-          </Card>
-        </div>
+          </TabsContent>
+
+          <TabsContent value="deployment">
+            <DeploymentChecker />
+          </TabsContent>
+
+          <TabsContent value="backup">
+            <BackupManager />
+          </TabsContent>
+
+          <TabsContent value="setup">
+            <QuickSetupGuide />
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );
