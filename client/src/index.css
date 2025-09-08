@@ -6,13 +6,25 @@
 
 :root {
   /* Brand Colors - The Collective by Thompson & Co */
-  --brushstroke-gradient: linear-gradient(135deg, #E7156A 0%, #F07B1E 25%, #D89B2D 50%, #10676F 75%, #0F2435 100%);
+  --brushstroke-gradient: linear-gradient(135deg, #F07B1E 0%, #D89B2D 30%, #10676F 60%, #0F2435 100%);
+  /* Core Palette */
   --magenta: #E7156A;
   --warm-orange: #F07B1E;
   --mustard-gold: #D89B2D;
   --teal: #10676F;
   --deep-navy: #0F2435;
-  --ivory-bg: #F2E6D7;
+  --ivory: #F2E6D7;
+  
+  /* Secondary Expansion Palette */
+  --coral: #F28B82;
+  --burgundy: #6B1C3E;
+  --pale-gold: #EBD8A1;
+  --slate-gray: #5C6770;
+  --cool-mint: #A8DADC;
+  --black: #000000;
+  --white: #FFFFFF;
+  
+  --ivory-bg: var(--ivory);
   --charcoal: hsl(0, 0%, 12%); /* #1F1F1F */
   --slate-blue-grey: hsl(210, 18%, 35%); /* #4A5A6A */
   --professional-navy: hsl(215, 25%, 27%); /* #334155 */
@@ -27,7 +39,7 @@
   --card-foreground: hsl(0, 0%, 12%);
   --popover: hsl(0, 0%, 100%);
   --popover-foreground: hsl(0, 0%, 12%);
-  --primary: hsl(215, 25%, 27%); /* Professional Navy */
+  --primary: #0F2435; /* Deep Navy */
   --primary-foreground: hsl(0, 0%, 100%);
   --secondary: hsl(215, 20%, 45%); /* Slate Grey */
   --secondary-foreground: hsl(0, 0%, 100%);
