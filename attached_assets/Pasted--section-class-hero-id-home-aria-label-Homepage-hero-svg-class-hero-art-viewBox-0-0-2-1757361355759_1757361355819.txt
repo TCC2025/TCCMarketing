@@ -1,0 +1,53 @@
+<section class="hero" id="home" aria-label="Homepage hero">
+  <svg class="hero__art" viewBox="0 0 2000 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="tccGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
+        <stop offset="0%"   stop-color="#10676F"/>
+        <stop offset="22%"  stop-color="#0F2435"/>
+        <stop offset="48%"  stop-color="#D89B2D"/>
+        <stop offset="74%"  stop-color="#F07B1E"/>
+        <stop offset="100%" stop-color="#E7156A"/>
+      </linearGradient>
+    </defs>
+    <path d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z" fill="url(#tccGrad)"></path>
+  </svg>
+
+  <div class="container">
+    <p class="hero__eyebrow">Enterprise-Grade Strategy, Human-Centered Growth</p>
+
+    <h1 class="hero__title">
+      <span>Cut Through the Noise.</span><br>
+      <span class="hero__title--teal">Grow With Clarity.</span>
+    </h1>
+
+    <p class="hero__subhead">
+      Your brand doesn’t have to run on reactive patchwork. We bring enterprise-grade strategy and AI-driven clarity
+      to align brand equity, go-to-market strategy, and employer branding.
+    </p>
+
+    <div class="hero__ctas">
+      <a class="btn btn--primary"
+         href="#contact"
+         data-event="cta_click"
+         data-location="hero"
+         data-variant="primary"
+         data-label="strategy_consult">
+        Let’s Talk Strategy
+      </a>
+
+      <a class="btn btn--ghost"
+         href="#blueprint"
+         data-event="cta_click"
+         data-location="hero"
+         data-variant="ghost"
+         data-label="blueprint_download">
+        Get the Talent Marketing Blueprint
+      </a>
+    </div>
+
+    <p class="hero__support microcopy">
+      No pressure—30 minutes to get clarity. Conversation, not sales.
+    </p>
+    <p class="hero__promise"><em>Growth that’s sustainable, measurable, and predictable. It’s science.</em></p>
+  </div>
+</section>

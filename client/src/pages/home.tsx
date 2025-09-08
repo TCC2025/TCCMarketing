@@ -168,83 +168,57 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="hero" id="home">
-        <svg
-          className="hero__art"
-          viewBox="0 0 2000 600"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="xMidYMid slice"
-          aria-hidden="true"
-        >
+      <section className="hero" id="home" aria-label="Homepage hero">
+        <svg className="hero__art" viewBox="0 0 2000 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <defs>
-            <linearGradient
-              id="tccGrad"
-              gradientUnits="userSpaceOnUse"
-              x1="0"
-              y1="0"
-              x2={gradientX2}
-              y2="0"
-            >
-              <stop offset="0%" stopColor="#10676F" />
-              <stop offset="22%" stopColor="#0F2435" />
-              <stop offset="48%" stopColor="#D89B2D" />
-              <stop offset="74%" stopColor="#F07B1E" />
-              <stop offset="100%" stopColor="#E7156A" />
+            <linearGradient id="tccGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
+              <stop offset="0%"   stopColor="#10676F"/>
+              <stop offset="22%"  stopColor="#0F2435"/>
+              <stop offset="48%"  stopColor="#D89B2D"/>
+              <stop offset="74%"  stopColor="#F07B1E"/>
+              <stop offset="100%" stopColor="#E7156A"/>
             </linearGradient>
           </defs>
-          <path
-            d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z"
-            fill="url(#tccGrad)"
-          />
+          <path d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z" fill="url(#tccGrad)"></path>
         </svg>
 
         <div className="container">
-          <p className="hero__eyebrow">Modern Solutions for a Dynamic World</p>
+          <p className="hero__eyebrow">Enterprise-Grade Strategy, Human-Centered Growth</p>
 
           <h1 className="hero__title">
-            <span>Cut Through the Noise.</span>
-            <br />
+            <span>Cut Through the Noise.</span><br />
             <span className="hero__title--teal">Grow With Clarity.</span>
           </h1>
 
           <p className="hero__subhead">
-            From customer campaigns to hiring funnels, we align your brand and
-            marketing to do more with less—backed by AI-driven strategy and an
-            enterprise-grade lens. We help SMBs, startups, and mid-market teams
-            remove friction, cut waste, and accelerate measurable outcomes.
+            Your brand doesn't have to run on reactive patchwork. We bring enterprise-grade strategy and AI-driven clarity
+            to align brand equity, go-to-market strategy, and employer branding.
           </p>
 
           <div className="hero__ctas">
-            <a
-              className="btn btn--primary"
-              href="#contact"
-              data-testid="button-strategy-consult"
-            >
-              Start Your Strategy Consult
+            <a className="btn btn--primary"
+               href="#contact"
+               data-event="cta_click"
+               data-location="hero"
+               data-variant="primary"
+               data-label="strategy_consult">
+              Let's Talk Strategy
             </a>
-            <a
-              className="btn btn--ghost"
-              href="#blueprint"
-              data-testid="button-blueprint"
-            >
-              Get the Blueprint
+
+            <a className="btn btn--ghost"
+               href="#blueprint"
+               data-event="cta_click"
+               data-location="hero"
+               data-variant="ghost"
+               data-label="blueprint_download">
+              Get the Talent Marketing Blueprint
             </a>
           </div>
 
-          <div className="proof-grid">
-            <div className="proof-card">
-              <div className="proof-stat">28%</div>
-              <div className="proof-label">Lower Cost-Per-Apply</div>
-            </div>
-            <div className="proof-card">
-              <div className="proof-stat">2.1×</div>
-              <div className="proof-label">Qualified Applications</div>
-            </div>
-            <div className="proof-card">
-              <div className="proof-stat">7→2</div>
-              <div className="proof-label">Days to Interview</div>
-            </div>
-          </div>
+          <p className="hero__support microcopy">
+            No pressure—30 minutes to get clarity. Conversation, not sales.
+          </p>
+          <p className="hero__promise"><em>Growth that's sustainable, measurable, and predictable. It's science.</em></p>
         </div>
       </section>
       {/* Services Section */}
