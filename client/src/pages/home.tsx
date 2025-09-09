@@ -1,16 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import SectionHeader from "@/components/ui/section-header";
-import Stat from "@/components/ui/stat";
-import Testimonial from "@/components/ui/testimonial";
-import { Bot, Users, TrendingUp, Star, CheckCircle, User } from "lucide-react";
+import { CheckCircle, User } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useQuery } from "@tanstack/react-query";
 import type {
-  Service,
   Stat as StatType,
   Testimonial as TestimonialType,
 } from "@shared/schema";
@@ -18,20 +13,16 @@ import { seoData } from "@/lib/seo";
 import { useSEO } from "@/hooks/useSEO";
 import { StructuredData } from "@/components/seo/StructuredData";
 import { createOrganizationStructuredData } from "@/lib/seo";
-import { trackFormSubmission, trackCTAClick } from "@/lib/analytics";
+import { trackFormSubmission } from "@/lib/analytics";
 
+// Responsive gradient span so all 5 color stops remain visible
 function useGradientSpan() {
   const [x2, setX2] = useState(1200);
 
   useEffect(() => {
     const update = () => {
       const w = window.innerWidth;
-      // Clamp the span so all 5 stops are visible across devices
-      let span =
-        w >= 1440 ? 1400 :
-        w >= 1024 ? 1200 :
-        w >= 640  ? 1100 :
-                    900;
+      const span = w >= 1440 ? 1400 : w >= 1024 ? 1200 : w >= 640 ? 1100 : 900;
       setX2(span);
     };
     update();
@@ -50,17 +41,14 @@ export default function Home() {
   const [isNewsletterSubmitting, setIsNewsletterSubmitting] = useState(false);
   const { toast } = useToast();
 
-  // SEO Optimization
+  // SEO
   useSEO({
     ...seoData.home,
     canonicalUrl: "/",
     type: "website",
   });
 
-  // Fetch data from APIs
-  const { data: servicesData = [] } = useQuery<Service[]>({
-    queryKey: ["/api/services"],
-  });
+  // Fetch data
   const { data: statsData = [] } = useQuery<StatType[]>({
     queryKey: ["/api/stats"],
   });
@@ -73,13 +61,10 @@ export default function Home() {
     if (!email.trim()) return;
 
     setIsSubmitting(true);
-
     try {
       const response = await fetch("/api/leads", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email,
           formType: "lead_magnet",
@@ -87,20 +72,15 @@ export default function Home() {
         }),
       });
 
-      if (response.ok) {
-        // Track conversion
-        trackFormSubmission("blueprint_download", "hero_section");
+      if (!response.ok) throw new Error("Form submission failed");
 
-        toast({
-          title: "Success!",
-          description:
-            "Your blueprint is on its way. Check your email in a few minutes.",
-        });
-        setEmail("");
-      } else {
-        throw new Error("Form submission failed");
-      }
-    } catch (error) {
+      trackFormSubmission("blueprint_download", "hero_section");
+      toast({
+        title: "Success!",
+        description: "Your blueprint is on its way. Check your email shortly.",
+      });
+      setEmail("");
+    } catch {
       toast({
         title: "Error",
         description:
@@ -117,32 +97,22 @@ export default function Home() {
     if (!newsletterEmail.trim()) return;
 
     setIsNewsletterSubmitting(true);
-
     try {
       const response = await fetch("/api/leads", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email: newsletterEmail,
           formType: "newsletter",
         }),
       });
 
-      if (response.ok) {
-        // Track newsletter signup
-        trackFormSubmission("newsletter_signup", "footer");
+      if (!response.ok) throw new Error("Newsletter subscription failed");
 
-        toast({
-          title: "Subscribed!",
-          description: "You're now subscribed to our weekly insights.",
-        });
-        setNewsletterEmail("");
-      } else {
-        throw new Error("Newsletter subscription failed");
-      }
-    } catch (error) {
+      trackFormSubmission("newsletter_signup", "footer");
+      toast({ title: "Subscribed!", description: "You're now on the list." });
+      setNewsletterEmail("");
+    } catch {
       toast({
         title: "Error",
         description: "There was a problem subscribing. Please try again.",
@@ -151,12 +121,6 @@ export default function Home() {
     } finally {
       setIsNewsletterSubmitting(false);
     }
-  };
-
-  const serviceIcons = {
-    "AI Marketing & Automation": Bot,
-    "Employer Branding & Talent Marketing": Users,
-    "Executive Branding": Star,
   };
 
   return (
@@ -168,37 +132,44 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="hero hero--shimmer" id="home" aria-label="Homepage hero">
-
+      <section className="hero" id="home" aria-label="Homepage hero">
         <div className="container">
-          <p className="hero__eyebrow">Enterprise-Grade Strategy, Human-Centered Growth</p>
+          <p className="hero__eyebrow">
+            Enterprise-Grade Strategy, Human-Centered Growth
+          </p>
 
           <h1 className="hero__title">
-            <span>Cut Through the Noise.</span><br />
+            <span>Cut Through the Noise.</span>
+            <br />
             <span className="hero__title--teal">Grow With Clarity.</span>
           </h1>
 
           <p className="hero__subhead">
-            Your brand doesn't have to run on reactive patchwork. We bring enterprise-grade strategy and AI-driven clarity
-            to align brand equity, go-to-market strategy, and employer branding.
+            Your brand doesn't have to run on reactive patchwork. We bring
+            enterprise-grade strategy and AI-driven clarity to align brand
+            equity, go-to-market strategy, and employer branding.
           </p>
 
           <div className="hero__ctas">
-            <a className="btn btn--primary"
-               href="#contact"
-               data-event="cta_click"
-               data-location="hero"
-               data-variant="primary"
-               data-label="strategy_consult">
+            <a
+              className="btn btn--primary"
+              href="#contact"
+              data-event="cta_click"
+              data-location="hero"
+              data-variant="primary"
+              data-label="strategy_consult"
+            >
               Let's Talk Strategy
             </a>
 
-            <a className="btn btn--ghost"
-               href="#blueprint"
-               data-event="cta_click"
-               data-location="hero"
-               data-variant="ghost"
-               data-label="blueprint_download">
+            <a
+              className="btn btn--ghost"
+              href="#blueprint"
+              data-event="cta_click"
+              data-location="hero"
+              data-variant="ghost"
+              data-label="blueprint_download"
+            >
               Get the Talent Marketing Blueprint
             </a>
           </div>
@@ -206,28 +177,46 @@ export default function Home() {
           <p className="hero__support microcopy">
             No pressure—30 minutes to get clarity. Conversation, not sales.
           </p>
-          <p className="hero__promise"><em>Growth that's sustainable, measurable, and predictable. It's science.</em></p>
+          <p className="hero__promise">
+            <em>
+              Growth that's sustainable, measurable, and predictable. It's
+              science.
+            </em>
+          </p>
         </div>
 
-        <svg className="hero__art"
-             viewBox="0 0 2000 600"
-             xmlns="http://www.w3.org/2000/svg"
-             preserveAspectRatio="xMidYMid slice"
-             aria-hidden="true">
+        <svg
+          className="hero__art"
+          viewBox="0 0 2000 600"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMidYMid slice"
+          aria-hidden="true"
+        >
           <defs>
-            <linearGradient id="tccGrad" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
-              {/* condensed span so all 5 colors pop */}
-              <stop offset="0%"   stopColor="#0F2435"/>
-              <stop offset="22%"  stopColor="#10676F"/>
-              <stop offset="46%"  stopColor="#D89B2D"/>
-              <stop offset="66%"  stopColor="#F07B1E"/>
-              <stop offset="100%" stopColor="#E7156A"/>
+            {/* responsive gradient span so all 5 colors show */}
+            <linearGradient
+              id="tccGrad"
+              x1="0"
+              y1="0"
+              x2={gradientX2}
+              y2="0"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop offset="0%" stopColor="#0F2435" />
+              <stop offset="22%" stopColor="#10676F" />
+              <stop offset="46%" stopColor="#D89B2D" />
+              <stop offset="66%" stopColor="#F07B1E" />
+              <stop offset="100%" stopColor="#E7156A" />
             </linearGradient>
           </defs>
-          {/* keep the same wave path, fill with updated gradient */}
-          <path d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z" fill="url(#tccGrad)"/>
+
+          <path
+            d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z"
+            fill="url(#tccGrad)"
+          />
         </svg>
       </section>
+
       {/* Services Section */}
       <section className="services" id="services">
         <div className="container">
@@ -356,6 +345,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       {/* Align360 Framework */}
       <section className="py-20 lg:py-32 bg-secondary text-secondary-foreground">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -433,6 +423,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       {/* Proof Section */}
       <section className="py-20 lg:py-32 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -504,6 +495,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       {/* Featured Case Study */}
       <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -556,6 +548,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       {/* Lead Magnet */}
       <section className="py-20 lg:py-32 bg-accent text-accent-foreground">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -598,6 +591,7 @@ export default function Home() {
           </form>
         </div>
       </section>
+
       {/* Newsletter Signup */}
       <section className="py-16 bg-card border-t border-border">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
