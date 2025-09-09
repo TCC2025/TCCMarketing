@@ -106,7 +106,8 @@
     position: relative;
     background: var(--background); /* #F8F6F2 */
     overflow: hidden;
-    padding-block: clamp(72px, 8vw, 120px) clamp(56px, 7vw, 100px);
+    padding-block: clamp(40px, 5vw, 60px) clamp(80px, 12vw, 140px);
+    min-height: 85vh;
   }
 
   .hero__art {
@@ -181,12 +182,22 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -50px;
-    width: 120%;
-    height: 120px;
+    bottom: -30px;
+    width: 140%;
+    height: 160px;
     z-index: 0;
     pointer-events: none;
-    filter: saturate(1.08) contrast(1.06);
+    filter: saturate(1.15) contrast(1.08);
+    animation: gradient-flow 8s ease-in-out infinite;
+  }
+  
+  @keyframes gradient-flow {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.02); }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .hero__art { animation: none; }
   }
 
   .hero .container {         /* content stays above the wave */
