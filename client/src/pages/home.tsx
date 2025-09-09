@@ -187,9 +187,9 @@ export default function Home() {
 
         <svg
           className="hero__art"
-          viewBox="0 0 2000 600"
+          viewBox="0 0 1200 120"
           xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="xMidYMid slice"
+          preserveAspectRatio="none"
           aria-hidden="true"
         >
           <defs>
@@ -198,7 +198,7 @@ export default function Home() {
               id="tccGrad"
               x1="0"
               y1="0"
-              x2={gradientX2}
+              x2="1200"
               y2="0"
               gradientUnits="userSpaceOnUse"
             >
@@ -211,7 +211,7 @@ export default function Home() {
           </defs>
 
           <path
-            d="M0,280 C400,120 800,520 2000,260 L2000,600 L0,600 Z"
+            d="M0,60 C300,20 600,100 1200,40 L1200,120 L0,120 Z"
             fill="url(#tccGrad)"
           />
         </svg>

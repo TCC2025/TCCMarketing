@@ -181,12 +181,11 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: calc(-1 * var(--hero-wave-offset)); /* keeps wave below content */
-    width: 160%;
-    max-width: 2000px;
-    height: auto;
-    z-index: 0;              /* BEHIND content */
-    pointer-events: none;    /* never catch clicks */
+    bottom: -50px;
+    width: 120%;
+    height: 120px;
+    z-index: 0;
+    pointer-events: none;
     filter: saturate(1.08) contrast(1.06);
   }
 
