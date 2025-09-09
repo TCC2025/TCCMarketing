@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoSvg from "@/assets/tcc-logo-nav-navy.svg";
 
 export default function Header() {
   const [location] = useLocation();
@@ -28,7 +29,7 @@ export default function Header() {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center hover:opacity-80 transition-opacity duration-200">
               <img 
-                src="@assets/tcc-logo-nav-navy.svg" 
+                src={logoSvg} 
                 alt="The Collective by Thompson & Co" 
                 className="h-8 w-auto object-contain"
                 style={{ height: '32px', width: 'auto', objectFit: 'contain' }}

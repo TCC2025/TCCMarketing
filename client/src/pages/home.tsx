@@ -202,11 +202,11 @@ export default function Home() {
               y2="0"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0%" stopColor="#0F2435" />
-              <stop offset="22%" stopColor="#10676F" />
-              <stop offset="46%" stopColor="#D89B2D" />
-              <stop offset="66%" stopColor="#F07B1E" />
-              <stop offset="100%" stopColor="#E7156A" />
+              <stop offset="0%" stopColor="#e7156a" />
+              <stop offset="25%" stopColor="#f07b1e" />
+              <stop offset="50%" stopColor="#d89b2d" />
+              <stop offset="75%" stopColor="#10676f" />
+              <stop offset="100%" stopColor="#0f2435" />
             </linearGradient>
           </defs>
 
